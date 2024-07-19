@@ -64,7 +64,7 @@ const flowMenu = addKeyword("menu").addAnswer(
         return gotoFlow(flowOp10);
 
       case "11":
-        break;
+        return await flowDynamic('Has salido. Puedes volver al menú principal escribiendo la palabra *MENU*')
     }
   }
 );

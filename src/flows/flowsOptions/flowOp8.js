@@ -1,9 +1,12 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
+const { connectDB } = require("../../../database/db_connection");
+
+const type_of_Service = "*VISA AMERICANA*";
 
 const flowOp8 = addKeyword(EVENTS.ACTION)
   .addAnswer("Elegiste *Visa Americana*")
-  .addAction(async (_, { flowDynamic }) => {
-    const message = `
+  .addAnswer(
+    `
 *REQUISITOS:*
 
 - Ife(INE).
@@ -20,33 +23,32 @@ Recuerda que nadie tiene la facultad de garantizarte la aprobación de la visa A
 También contamos con el servicio de traslado ejecutivo al Consulado de entrevistas.
 
 Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas. Con gusto, un ejecutivo certificado lo atenderá.
-    `;
-    await flowDynamic(message);
-  })
-  .addAction(async (_, { flowDynamic }) => {
-    await new Promise((resolve) => setTimeout(resolve, 12000));
-    return await flowDynamic(
-      "Si deseas tramitar tu visa, por favor escribe *SI*. \nSi no es asi, escribe *NO*."
-    );
-  })
-  .addAction({ capture: true }, async (ctx, { flowDynamic, state, gotoFlow }) => {
-    const response = ctx.body.toLowerCase();
-    if (response === 'si' || response === 'sí') {
-      await state.update({ phoneNumberClient: ctx.from });
-      return await flowDynamic(
-        "Perfecto, comenzaremos con la recopilación de tus documentos. Por favor, envía una foto clara de tu Ife(INE)."
-      );
-    } else if (response === 'no') {
-      return await flowDynamic(
-        "Gracias por tu tiempo. Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*."
-      );
-
-    } else {
-      return await flowDynamic(
-        "Respuesta no válida. Por favor escribe *SI* o *NO*."
-      );
+    `
+  )
+  .addAnswer(
+    "Si deseas tramitar tu visa, por favor escribe *SI*. \nSi no es así, escribe *NO*.",
+    { capture: true },
+    async (ctx, { flowDynamic, state }) => {
+      const response = ctx.body.toLowerCase();
+      if (response === "si" || response === "sí") {
+        await state.update({
+          phoneNumberClient: ctx.from,
+          type_of_service: type_of_Service,
+        });
+        return await flowDynamic(
+          "Perfecto, comenzaremos con la recopilación de tus documentos. Por favor, envía una foto clara de tu Ife(INE)."
+        );
+      } else if (response === "no") {
+        return await flowDynamic(
+          "Gracias por tu tiempo. Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*."
+        );
+      } else {
+        return await flowDynamic(
+          "Respuesta no válida. Por favor escribe *SI* o *NO*."
+        );
+      }
     }
-  })
+  )
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
     await state.update({ ifePhoto: ctx.body });
     return await flowDynamic(
@@ -69,15 +71,33 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
       Foto de Pasaporte: ${myState.passportPhoto}
       Foto de Acta de nacimiento: ${myState.birthCertificatePhoto}
     `;
-    console.log(summaryVisa);
-    /*await flowDynamic(
-      `Este es el resumen de tu solicitud de visa:\n${summaryVisa}`
-    );*/
-    return await flowDynamic(
-      `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para continuar con tu trámite de visa. Gracias por tu paciencia.` +
-        "\n\n" +
-        "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*."
-    );
+
+    try {
+      const db = await connectDB();
+      const collection = db.collection("cotizaciones");
+
+      const insertResult = await collection.insertOne({
+        type_of_service: myState.type_of_service,
+        phoneNumberClient: myState.phoneNumberClient,
+        ifePhoto: myState.ifePhoto,
+        passportPhoto: myState.passportPhoto,
+        birthCertificatePhoto: myState.birthCertificatePhoto,
+      });
+
+      console.log(insertResult);
+      console.log("Visa request has been sent to MongoDB!");
+
+      await flowDynamic([
+        {
+          body:
+            `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para continuar con tu trámite de visa. Gracias por tu paciencia.` +
+            "\n\n" +
+            "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*.",
+        },
+      ]);
+    } catch (error) {
+      console.error("Error MongoDB:", error);
+    }
   });
 
 module.exports = flowOp8;
