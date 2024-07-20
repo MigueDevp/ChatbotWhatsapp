@@ -26,7 +26,7 @@ const flowOp3 = addKeyword(EVENTS.ACTION)
       "\n" +
       "Por ejemplo: *1*",
     { capture: true },
-    async (ctx, { gotoFlow, fallBack }) => {
+    async (ctx, { gotoFlow, fallBack, flowDynamic }) => {
       const option = ctx.body.trim();
       if (!["1", "2", "3", "4", "5", "6", "7"].includes(option)) {
         return fallBack(

@@ -10,7 +10,6 @@ const MongoAdapter = require("@bot-whatsapp/database/mongo");
 
 const flowWelcome = require("./src/flows/flowWelcome");
 const flowMenu = require("./src/flows/flowMenu");
-//const backMenu = require("./src/flows/flowOptionsSubmenu/flowSubmenuOp1")
 
 const flowOp1 = require("./src/flows/flowsOptions/flowOp1");
 const flowOp2 = require("./src/flows/flowsOptions/flowOp2");
@@ -38,7 +37,6 @@ const main = async () => {
   const adapterFlow = createFlow([
     flowWelcome,
     flowMenu,
-    //backMenu,
     flowOp1,
     flowOp2,
     flowOp3,

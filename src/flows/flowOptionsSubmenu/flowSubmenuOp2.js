@@ -5,13 +5,15 @@ const type_of_Service = "*COTIZACIÓN DE TRANSPORTE VAN*";
 
 const flowSubmenuOp2 = addKeyword(EVENTS.ACTION)
   .addAnswer("Has elegido cotizar *Van*, con gusto te damos seguimiento.")
+
   .addAnswer(
     "¿Cuál es tu nombre?",
     { capture: true },
     async (ctx, { state }) => {
-      await state.update({ name: ctx.body, type_of_service: type_of_Service });
+      await state.update({ nameVan: ctx.body, type_of_serviceVan: type_of_Service });
     }
   )
+
   .addAnswer(
     "¿Cuál es el destino de la Van? \n*(EJEMPLO):* Playa del Carmen.",
     { capture: true },
@@ -19,70 +21,73 @@ const flowSubmenuOp2 = addKeyword(EVENTS.ACTION)
       const myState = state.getMyState();
       await state.update({
         ...myState,
-        destination: ctx.body,
-        numberCellphoneClient: ctx.from,
+        destinationVan: ctx.body,
+        numberCellphoneClientVan: ctx.from,
       });
     }
   )
+
   .addAnswer(
     "¿Cuál es la fecha en la que planeas realizar este viaje?",
     { capture: true },
     async (ctx, { state }) => {
       const myState = state.getMyState();
-      await state.update({ ...myState, travelDate: ctx.body });
+      await state.update({ ...myState, travelDateVan: ctx.body });
     }
   )
+
   .addAnswer(
     "¿Qué movimientos o paradas adicionales necesitas hacer una vez en el destino? Esto nos ayuda a entender mejor tus necesidades de transporte en el lugar.",
     { capture: true },
-    async (ctx, { state }) => {
+    async (ctx, { state, flowDynamic }) => {
       const myState = state.getMyState();
-      await state.update({ ...myState, movements: ctx.body });
+      await state.update({ ...myState, movementsVan: ctx.body });
+
+      try {
+        const db = await connectDB();
+        const myState = state.getMyState();
+        const collection = db.collection("cotizaciones");
+        console.log("Connected Successfully to MongoDB!");
+
+        const insertResult = await collection.insertOne({
+          type_of_service: myState.type_of_serviceVan,
+          name: myState.nameVan,
+          destination: myState.destinationVan,
+          travelDate: myState.travelDateVan,
+          movements: myState.movementsVan,
+          numberCellphoneClient: myState.numberCellphoneClientVan,
+        });
+
+        console.log(insertResult);
+        console.log("Summary has been sent to MongoDB!");
+
+        const summaryVan = `
+          *COTIZACIÓN DE VAN:*
+          Nombre: ${myState.nameVan}
+          Destino de la Van: ${myState.destinationVan}
+          Fecha del viaje: ${myState.travelDateVan}
+          Movimientos adicionales en el destino: ${myState.movementsVan}
+          Número de celular: ${myState.numberCellphoneClientVan}
+        `;
+
+        await flowDynamic([
+          {
+            body: `Este es el resumen de tu cotización de Van:\n${summaryVan}`,
+          },
+          {
+            body:
+              `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.nameVan}*.` +
+              "\n\n" +
+              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*",
+          },
+        ]);
+      } catch (error) {
+        console.error("Error MongoDB:", error);
+        await flowDynamic(
+          "Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde."
+        );
+      }
     }
-  )
-  .addAction(async (_, { state, flowDynamic }) => {
-    const myState = state.getMyState();
-    const summaryVan = `
-        *COTIZACIÓN DE VAN:*
-        Nombre: ${myState.name}
-        Destino de la Van: ${myState.destination}
-        Fecha del viaje: ${myState.travelDate}
-        Movimientos adicionales en el destino: ${myState.movements}
-        Número de celular: ${myState.numberCellphoneClient}
-      `;
-
-    try {
-      const db = await connectDB();
-      const collection = db.collection("cotizaciones");
-      console.log("Connected Successfully to MongoDB!");
-
-      const insertResult = await collection.insertOne({
-        type_of_service: myState.type_of_service,
-        name: myState.name,
-        destination: myState.destination,
-        travelDate: myState.travelDate,
-        movements: myState.movements,
-        numberCellphoneClient: myState.numberCellphoneClient,
-      });
-
-      console.log(insertResult);
-      console.log("Summary has been sent to MongoDB!");
-
-      await flowDynamic([
-        { body: `Este es el resumen de tu cotización de Van:\n${summaryVan}` },
-        {
-          body:
-            `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.name}*.` +
-            "\n\n" +
-            "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*",
-        },
-      ]);
-    } catch (error) {
-      console.error("Error MongoDB:", error);
-      await flowDynamic(
-        "Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde."
-      );
-    }
-  });
+  );
 
 module.exports = flowSubmenuOp2;

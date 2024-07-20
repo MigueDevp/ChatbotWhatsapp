@@ -11,8 +11,8 @@ const flowOp5 = addKeyword(EVENTS.ACTION)
     { capture: true },
     async (ctx, { state }) => {
       await state.update({
-        fullName: ctx.body,
-        type_of_service: type_of_Service,
+        fullNameStatus: ctx.body,
+        type_of_serviceStatus: type_of_Service,
       });
     }
   )
@@ -20,53 +20,51 @@ const flowOp5 = addKeyword(EVENTS.ACTION)
   .addAnswer(
     "¿Cuál es el destino del contrato?\n*(Ejemplo):* Cancún.",
     { capture: true },
-    async (ctx, { state }) => {
+    async (ctx, { state, flowDynamic }) => {
       await state.update({
-        destination: ctx.body,
-        phoneNumberClient: ctx.from,
-      });
-    }
-  )
-
-  .addAction(async (_, { state, flowDynamic }) => {
-    const myState = state.getMyState();
-
-    const summaryAdeudo = `
-      *SOLICITUD DE ESTADO DE ADEUDO:*
-      Nombre completo del contratante: ${myState.fullName}
-      Destino del contrato: ${myState.destination}
-      Número de celular: ${myState.phoneNumberClient}
-    `;
-
-    try {
-      const db = await connectDB();
-      const collection = db.collection("cotizaciones");
-      console.log("Connected Successfully to MongoDB!");
-
-      const insertResult = await collection.insertOne({
-        type_of_service: myState.type_of_service,
-        fullName: myState.fullName,
-        destination: myState.destination,
-        phoneNumberClient: myState.phoneNumberClient,
+        destinationStatus: ctx.body,
+        phoneNumberClientStatus: ctx.from,
       });
 
-      console.log(insertResult);
-      console.log("Request for account status has been sent to MongoDB!");
+      const myState = state.getMyState();
+      const summaryAdeudo = `
+        *SOLICITUD DE ESTADO DE ADEUDO:*
+        Nombre completo del contratante: ${myState.fullNameStatus}
+        Destino del contrato: ${myState.destinationStatus}
+        Número de celular: ${myState.phoneNumberClientStatus}
+      `;
 
-      await flowDynamic([
-        {
-          body: `Este es el resumen de tu solicitud de estado de adeudo:\n${summaryAdeudo}`,
-        },
-        {
-          body:
-            `Tu solicitud ha sido correctamente enviada. En breve nos pondremos en contacto vía WhatsApp para brindarte tu *ESTADO DE ADEUDO*. Gracias por tu paciencia.` +
-            "\n\n" +
-            "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*",
-        },
-      ]);
-    } catch (error) {
-      console.error("Error MongoDB:", error);
+      try {
+        const db = await connectDB();
+        const collection = db.collection("cotizaciones");
+        const myState = state.getMyState();
+        console.log("Connected Successfully to MongoDB!");
+
+        const insertResult = await collection.insertOne({
+          type_of_service: myState.type_of_serviceStatus,
+          fullName: myState.fullNameStatus,
+          destination: myState.destinationStatus,
+          phoneNumberClient: myState.phoneNumberClientStatus,
+        });
+
+        console.log(insertResult);
+        console.log("Request for account status has been sent to MongoDB!");
+
+        await flowDynamic([
+          {
+            body: `Este es el resumen de tu solicitud de estado de adeudo:\n${summaryAdeudo}`,
+          },
+          {
+            body:
+              `Tu solicitud ha sido correctamente enviada. En breve nos pondremos en contacto vía WhatsApp para brindarte tu *ESTADO DE ADEUDO*. Gracias por tu paciencia.` +
+              "\n\n" +
+              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*",
+          },
+        ]);
+      } catch (error) {
+        console.error("Error MongoDB:", error);
+      }
     }
-  });
+  );
 
 module.exports = flowOp5;

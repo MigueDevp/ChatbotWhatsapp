@@ -32,8 +32,8 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
       const response = ctx.body.toLowerCase();
       if (response === "si" || response === "sí") {
         await state.update({
-          phoneNumberClient: ctx.from,
-          type_of_service: type_of_Service,
+          phoneNumberClientVA: ctx.from,
+          type_of_serviceVA: type_of_Service,
         });
         return await flowDynamic(
           "Perfecto, comenzaremos con la recopilación de tus documentos. Por favor, envía una foto clara de tu Ife(INE)."
@@ -50,26 +50,26 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
     }
   )
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
-    await state.update({ ifePhoto: ctx.body });
+    await state.update({ ifePhotoVA: ctx.body });
     return await flowDynamic(
       "Ahora, por favor envía una foto clara de tu Pasaporte."
     );
   })
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
-    await state.update({ passportPhoto: ctx.body });
+    await state.update({ passportPhotoVA: ctx.body });
     return await flowDynamic(
       "Por último, por favor envía una foto clara de tu Acta de nacimiento."
     );
   })
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
-    await state.update({ birthCertificatePhoto: ctx.body });
+    await state.update({ birthCertificatePhotoVA: ctx.body });
     const myState = state.getMyState();
     const summaryVisa = `
       *SOLICITUD DE VISA AMERICANA:*
-      Número de celular: ${myState.phoneNumberClient}
-      Foto de Ife(INE): ${myState.ifePhoto}
-      Foto de Pasaporte: ${myState.passportPhoto}
-      Foto de Acta de nacimiento: ${myState.birthCertificatePhoto}
+      Número de celular: ${myState.phoneNumberClientVA}
+      Foto de Ife(INE): ${myState.ifePhotoVA}
+      Foto de Pasaporte: ${myState.passportPhotoVA}
+      Foto de Acta de nacimiento: ${myState.birthCertificatePhotoVA}
     `;
 
     try {
@@ -77,11 +77,11 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
       const collection = db.collection("cotizaciones");
 
       const insertResult = await collection.insertOne({
-        type_of_service: myState.type_of_service,
-        phoneNumberClient: myState.phoneNumberClient,
-        ifePhoto: myState.ifePhoto,
-        passportPhoto: myState.passportPhoto,
-        birthCertificatePhoto: myState.birthCertificatePhoto,
+        type_of_service: myState.type_of_serviceVA,
+        phoneNumberClient: myState.phoneNumberClientVA,
+        ifePhoto: myState.ifePhotoVA,
+        passportPhoto: myState.passportPhotoVA,
+        birthCertificatePhoto: myState.birthCertificatePhotoVA,
       });
 
       console.log(insertResult);

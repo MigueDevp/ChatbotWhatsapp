@@ -1,0 +1,360 @@
+[
+  {
+    "ref": "ans_b5b04884-408a-4d5e-ab71-791a775e6fb1",
+    "keyword": "key_080c606a-fa1d-4b26-bdc5-4f3db9ab6ca0",
+    "answer": "❤️ *¡Hola Viajero!* ❤️\n\nSoy el Chatbot de TravelMR, es un placer tenerte con nosotros. 🫶 \n\nPuedes ver nuestra cartelera de viajes ingresando en el siguiente enlace \n-> https://travelmr.com.mx/view/viajes \n\nSi deseas ver el menú de opciones de este chatbot escribe la palabra: *MENÚ*",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "e40f0b8b17da195b6f8c2f20c4ea8e85",
+    "from": "5214271325173"
+  },
+  {
+    "ref": "1beef8b0-1c58-412f-bda1-5890ae51dffc",
+    "keyword": "e40f0b8b17da195b6f8c2f20c4ea8e85",
+    "answer": "menu",
+    "options": {},
+    "from": "5214271325173",
+    "refSerialize": "8d19b761e0b1d940f841b37e5e559ee4"
+  },
+  {
+    "ref": "ans_758b7940-f321-4513-b3ac-759502696131",
+    "keyword": "key_5c7ae591-ffb9-464b-b837-774ab95ea600",
+    "answer": "Este es el menu de opciones \n\n1. Cotizar destino *nacional* ✈️🌎 \n2. Cotizar destino *internacional* 🌏✈️\n3. Cotizar otros servicios 🚎 \n4. Cambios en mi reserva ⏱️\n5. Estado de mi adeudo ✅\n6. Reembolsos ⬅️\n7. Facturación 📄\n8. Tu Visa Americana con TravelMR 🇺🇸\n9. Tu Visa Canadiense con TravelMR 🇨🇦\n  10. Vuelos ✈️↔️\n 11. Salir\n\n*Por favor ingresa una opcion acorde a su número* \n\nPor ejemplo: *1*",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": true,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "921c3f969141ce842087369e5308b9db",
+    "from": "5214271325173"
+  },
+  {
+    "ref": "37f60401-5545-4c46-8cb0-9161c03048a3",
+    "keyword": "921c3f969141ce842087369e5308b9db",
+    "answer": "1",
+    "options": {},
+    "from": "5214271325173",
+    "refSerialize": "290236b1d481a790a200ea6e94b2122a"
+  },
+  {
+    "ref": "ans_65ac488c-f544-4161-abce-1dedf4441c81",
+    "keyword": "key_73943bd8-fae8-444e-a618-58d19d7017ca",
+    "answer": "Elegiste *Cotizar mi viaje nacional*, con gusto te damos seguimiento",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": false
+    },
+    "refSerialize": "ca74036198a570aa90d6162fba46050e",
+    "from": "5214271325173"
+  },
+  {
+    "ref": "ans_0736ce51-47bb-4e01-b3e0-7adbc0a57815",
+    "keyword": "ans_65ac488c-f544-4161-abce-1dedf4441c81",
+    "answer": "__call_action__",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "d8b4d66ab201a6768ac1623c47080739",
+    "from": "5214271325173"
+  },
+  {
+    "ref": "ans_de90e66f-2550-4491-b9a8-4ee879b36e10",
+    "keyword": "ans_0736ce51-47bb-4e01-b3e0-7adbc0a57815",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": true,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "c8e5b627e0a1010b6c8927aa31190a7f",
+    "from": "5214271325173"
+  },
+  {
+    "ref": "ddb24804-1c71-4f45-8869-c88264ccf298",
+    "keyword": null,
+    "answer": "¿Cuál es tu nombre?",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "5214271325173",
+    "refSerialize": "bc066a53eb21854cd84c73d6490b3a77"
+  },
+  {
+    "ref": "82eebdfe-50b9-4388-a194-b59ee7b8b7be",
+    "keyword": "c8e5b627e0a1010b6c8927aa31190a7f",
+    "answer": "Miguel Angel Gonzales",
+    "options": {},
+    "from": "5214271325173",
+    "refSerialize": "58dc5ed1f598946b4667e876c834b2ed"
+  },
+  {
+    "ref": "6310f974-9687-4621-9388-591529cca085",
+    "keyword": null,
+    "answer": "¡Un placer conocerte! Miguel Angel Gonzales\n¿Qué destino deseas visitar?",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "5214271325173",
+    "refSerialize": "a5b02f70c4965fb3700d7dd630c24145"
+  },
+  {
+    "ref": "ans_9e9f6aaf-bb57-4b16-a08f-ea05f09bf341",
+    "keyword": "ans_de90e66f-2550-4491-b9a8-4ee879b36e10",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": true,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "09ee1f8d28bb13c6372189e7677fad9c",
+    "from": "5214271325173"
+  },
+  {
+    "ref": "abdadb95-daec-462a-898c-8df87c2be00d",
+    "keyword": "09ee1f8d28bb13c6372189e7677fad9c",
+    "answer": "Puerto Vallarta",
+    "options": {},
+    "from": "5214271325173",
+    "refSerialize": "81292b013e56e1c9792823ea0c29c16a"
+  },
+  {
+    "ref": "8b8215d8-a02c-4ef2-9c92-e4b899d53172",
+    "keyword": null,
+    "answer": "¿Cuáles son sus fechas de interés?\n(Ejemplo: 12 de febrero al 18 de febrero)",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "5214271325173",
+    "refSerialize": "ed00253e78072e86d522743637e74ac7"
+  },
+  {
+    "ref": "ans_1a83b562-9ff1-449f-a898-2f7e8669c17c",
+    "keyword": "ans_9e9f6aaf-bb57-4b16-a08f-ea05f09bf341",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": true,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "e3b161473415d73f164d265295d7cb00",
+    "from": "5214271325173"
+  },
+  {
+    "ref": "4cdc293f-2697-40f8-9ed8-14b5e35205ca",
+    "keyword": "e3b161473415d73f164d265295d7cb00",
+    "answer": "12 de febrero al 18 de abril",
+    "options": {},
+    "from": "5214271325173",
+    "refSerialize": "7ad362a10d653263f7a0bff4692c4f8c"
+  },
+  {
+    "ref": "75cc989d-9c04-4b86-8491-221ee21c9a84",
+    "keyword": null,
+    "answer": "Número de personas incluidas usted",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "5214271325173",
+    "refSerialize": "82ff302233ef467842c1d2c7c1d78b2c"
+  },
+  {
+    "ref": "ans_82398e31-0b24-461a-9eae-3b5fccec855d",
+    "keyword": "ans_1a83b562-9ff1-449f-a898-2f7e8669c17c",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": true,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "cc0d7f248cebf94a27bb7c6845842307",
+    "from": "5214271325173"
+  },
+  {
+    "ref": "9a30e015-84b6-45d0-bda4-99a75a87dd74",
+    "keyword": "cc0d7f248cebf94a27bb7c6845842307",
+    "answer": "2",
+    "options": {},
+    "from": "5214271325173",
+    "refSerialize": "2294c3d08b53a6effa5df696a15b9d30"
+  },
+  {
+    "ref": "9aff2f80-9084-40cf-a4f6-4bd82e4c28c3",
+    "keyword": null,
+    "answer": "¿Lleva menores de edad? Si es así, ¿qué edades tienen?\n*(Ejemplo A):* 5\n*(Ejemplo B):* 5 y 14\n*(Ejemplo C):* 5, 14 y 8\nSi no van menores de edad, escriba *\"NO\"*",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "5214271325173",
+    "refSerialize": "f47e2ac12d2e654b3ea86cdf64cc041e"
+  },
+  {
+    "ref": "ans_47b7e28d-e5fd-4d25-b52a-12e8d8492da9",
+    "keyword": "ans_82398e31-0b24-461a-9eae-3b5fccec855d",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": true,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "f8860fa4bddbaa76908eb65f3277417b",
+    "from": "5214271325173"
+  },
+  {
+    "ref": "f83495d4-0303-477c-ab1b-40433fbca86d",
+    "keyword": "f8860fa4bddbaa76908eb65f3277417b",
+    "answer": "NO",
+    "options": {},
+    "from": "5214271325173",
+    "refSerialize": "6b30dd30198db6b0a9ec1b064264ed74"
+  },
+  {
+    "ref": "741d6a1c-c60d-4c4b-af22-92fa5214e0ad",
+    "keyword": null,
+    "answer": "Si su plan es todo incluido por favor escriba *\"TODO INCLUIDO\"*.\nSi es solo hospedaje, escriba *\"HOSPEDAJE\"*",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "5214271325173",
+    "refSerialize": "27a0a10f08912a12ec87ad295c2ab30f"
+  },
+  {
+    "ref": "ans_ddab5f58-437b-4c4a-8df8-85ac27a76572",
+    "keyword": "ans_47b7e28d-e5fd-4d25-b52a-12e8d8492da9",
+    "answer": "__capture_only_intended__",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": true,
+      "child": null,
+      "delay": 0,
+      "idle": null,
+      "ref": null,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "6dbc1ba17b237abeff239984ba3bb35f",
+    "from": "5214271325173"
+  },
+  {
+    "ref": "c36c9a68-fa66-4fe8-b0ce-52d65996baac",
+    "keyword": "6dbc1ba17b237abeff239984ba3bb35f",
+    "answer": "TODO INCLUIDO",
+    "options": {},
+    "from": "5214271325173",
+    "refSerialize": "6e2d04b3f4af152a678da943bff23149"
+  },
+  {
+    "ref": "50008ccc-c6de-4140-a40c-3e17d31095fe",
+    "keyword": null,
+    "answer": "Este el resumen de tu cotización:\n\n      *COTIZACIÓN DE DESTINO NACIONAL:*\n      Nombre: Miguel Angel Gonzales\n      Destino: Puerto Vallarta\n      Fechas: 12 de febrero al 18 de abril\n      Número de personas: 2\n      Menores de edad (edades): NO\n      Plan: TODO INCLUIDO\n      Número de celular: 5214271325173\n    ",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "5214271325173",
+    "refSerialize": "7b25222a5d00f5c144d583e5162f6396"
+  },
+  {
+    "ref": "ee4ca74c-9de4-4ae2-a769-c36d73a87c20",
+    "keyword": null,
+    "answer": "Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento.\nAgradecemos mucho tu paciencia, *Miguel Angel Gonzales*.\n\nSi necesitas seguir usando nuestro servicio puedes volver al menu principal escribiendo la palabra *MENU*",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "5214271325173",
+    "refSerialize": "e74b9c41a5f2fe3a21f3dcac83a364f9"
+  }
+]

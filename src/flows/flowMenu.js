@@ -10,7 +10,7 @@ const flowOp8 = require("./flowsOptions/flowOp8");
 const flowOp9 = require("./flowsOptions/flowOp9");
 const flowOp10 = require("./flowsOptions/flowOp10");
 
-//MENU PRINCIPAL DE ACCIONES DEL CHATBOT
+// MENU PRINCIPAL DE ACCIONES DEL CHATBOT
 const flowMenu = addKeyword("menu").addAnswer(
   "Este es el menu de opciones \n" +
     "\n" +
@@ -23,24 +23,25 @@ const flowMenu = addKeyword("menu").addAnswer(
     "7. Facturación 📄\n" +
     "8. Tu Visa Americana con TravelMR 🇺🇸\n" +
     "9. Tu Visa Canadiense con TravelMR 🇨🇦\n" +
-    "  10. Vuelos ✈️↔️\n" +
-    " 11. Salir" +
+    "10. Vuelos ✈️↔️\n" +
+    "11. Salir" +
     "\n" +
     "\n" +
-    "*Por favor ingresa una opcion acorde a su número* \n" +
+    "*Por favor ingresa una opción acorde a su número* \n" +
     "\n" +
     "Por ejemplo: *1*",
   { capture: true },
-  async (ctx, { gotoFlow, fallBack, flowDynamic }) => {
+  async (ctx, { gotoFlow, fallBack, flowDynamic, state }) => {
     if (
       !["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"].includes(
         ctx.body
       )
     ) {
       return fallBack(
-        "Respuesta no válida, por favor selecciona una de las opciones ."
+        "Respuesta no válida, por favor selecciona una de las opciones."
       );
     }
+
     switch (ctx.body) {
       case "1":
         return gotoFlow(flowOp1);
@@ -62,9 +63,10 @@ const flowMenu = addKeyword("menu").addAnswer(
         return gotoFlow(flowOp9);
       case "10":
         return gotoFlow(flowOp10);
-
       case "11":
-        return await flowDynamic('Has salido. Puedes volver al menú principal escribiendo la palabra *MENU*')
+        return await flowDynamic(
+          "Has salido. Puedes volver al menú principal escribiendo la palabra *MENU*"
+        );
     }
   }
 );

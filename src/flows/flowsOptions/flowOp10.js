@@ -9,7 +9,7 @@ const flowOp10 = addKeyword(EVENTS.ACTION)
     "¿Cuál es tu nombre?",
     { capture: true },
     async (ctx, { state }) => {
-      await state.update({ name: ctx.body, type_of_service: type_of_Service });
+      await state.update({ nameFlight: ctx.body, type_of_serviceFlight: type_of_Service });
     }
   )
   .addAnswer(
@@ -50,7 +50,7 @@ const flowOp10 = addKeyword(EVENTS.ACTION)
       const myState = state.getMyState();
       const summaryFlight = `
         *COTIZACIÓN DE VUELO:*
-        Nombre: ${myState.name}
+        Nombre: ${myState.nameFlight}
         Destino: ${myState.destinationFlight}
         Tipo de vuelo: ${myState.flightType}
         Fechas de interés: ${myState.flightDates}
@@ -64,8 +64,8 @@ const flowOp10 = addKeyword(EVENTS.ACTION)
         const collection = db.collection("cotizaciones");
 
         const insertResult = await collection.insertOne({
-          type_of_service: myState.type_of_service,
-          name: myState.name,
+          type_of_service: myState.type_of_serviceFlight,
+          name: myState.nameFlight,
           destinationFlight: myState.destinationFlight,
           flightType: myState.flightType,
           flightDates: myState.flightDates,
@@ -81,7 +81,7 @@ const flowOp10 = addKeyword(EVENTS.ACTION)
           `Este es el resumen de tu cotización de vuelo:\n${summaryFlight}`
         );
         return await flowDynamic(
-          `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.name}*.` +
+          `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.nameFlight}*.` +
             "\n\n" +
             "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*"
         );

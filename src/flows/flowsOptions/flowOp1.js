@@ -11,7 +11,7 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
     "¿Cuál es tu nombre?",
     { capture: true },
     async (ctx, { state }) => {
-      await state.update({ name: ctx.body, type_of_service: type_of_Service });
+      await state.update({ nameNational: ctx.body, type_of_serviceNational: type_of_Service });
     }
   )
   .addAnswer(
@@ -63,8 +63,8 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
         console.log("Connected Successfully to MongoDB!");
         const myState = state.getMyState();
         const insertResult = await collection.insertOne({
-          type_of_service: myState.type_of_service,
-          name: myState.name,
+          type_of_service: myState.type_of_serviceNational,
+          name: myState.nameNational,
           destinationNational: myState.destinationNational,
           datesNational: myState.datesNational,
           peopleNational: myState.peopleNational,
@@ -78,7 +78,7 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
 
         const summaryNational = `
         *COTIZACIÓN DE DESTINO NACIONAL:*
-        Nombre: ${myState.name}
+        Nombre: ${myState.nameNational}
         Destino: ${myState.destinationNational}
         Fechas: ${myState.datesNational}
         Número de personas: ${myState.peopleNational}
@@ -91,7 +91,7 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
           { body: `Este es el resumen de tu cotización:\n${summaryNational}` },
           {
             body:
-              `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento.\nAgradecemos mucho tu paciencia, *${myState.name}*.` +
+              `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento.\nAgradecemos mucho tu paciencia, *${myState.nameNational}*.` +
               "\n\n" +
               "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*",
           },

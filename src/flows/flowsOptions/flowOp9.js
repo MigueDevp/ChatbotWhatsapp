@@ -22,14 +22,14 @@ Recuerda que nadie tiene la facultad de garantizarte la aprobación de la visa, 
     `
   )
   .addAnswer(
-    "Si deseas tramitar tu visa, por favor escribe *SI*. Si no es así, escribe *NO*.",
+    "Si deseas tramitar tu visa, por favor escribe *SI*. \nSi no es así, escribe *NO*.",
     { capture: true },
     async (ctx, { flowDynamic, state }) => {
       const response = ctx.body.toLowerCase();
       if (response === "si" || response === "sí") {
         await state.update({
-          phoneNumberClient: ctx.from,
-          type_of_service: type_of_Service,
+          phoneNumberClientVC: ctx.from,
+          type_of_serviceVC: type_of_Service,
         });
         return await flowDynamic(
           "Perfecto, comenzaremos con la recopilación de tus documentos. Por favor, envía una foto clara de tu Ife(INE)."
@@ -46,26 +46,26 @@ Recuerda que nadie tiene la facultad de garantizarte la aprobación de la visa, 
     }
   )
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
-    await state.update({ ifePhoto: ctx.body });
+    await state.update({ ifePhotoVC: ctx.body });
     return await flowDynamic(
       "Ahora, por favor envía una foto clara de tu Pasaporte."
     );
   })
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
-    await state.update({ passportPhoto: ctx.body });
+    await state.update({ passportPhotoVC: ctx.body });
     return await flowDynamic(
       "Por último, por favor envía una foto clara de tu Acta de nacimiento."
     );
   })
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
-    await state.update({ birthCertificatePhoto: ctx.body });
+    await state.update({ birthCertificatePhotoVC: ctx.body });
     const myState = state.getMyState();
     const summaryVisa = `
       *SOLICITUD DE VISA CANADIENSE:*
-      Número de celular: ${myState.phoneNumberClient}
-      Foto de Ife(INE): ${myState.ifePhoto}
-      Foto de Pasaporte: ${myState.passportPhoto}
-      Foto de Acta de nacimiento: ${myState.birthCertificatePhoto}
+      Número de celular: ${myState.phoneNumberClientVC}
+      Foto de Ife(INE): ${myState.ifePhotoVC}
+      Foto de Pasaporte: ${myState.passportPhotoVC}
+      Foto de Acta de nacimiento: ${myState.birthCertificatePhotoVC}
     `;
     console.log(summaryVisa);
 
@@ -74,11 +74,11 @@ Recuerda que nadie tiene la facultad de garantizarte la aprobación de la visa, 
       const collection = db.collection("cotizaciones");
 
       const insertResult = await collection.insertOne({
-        type_of_service: myState.type_of_service,
-        phoneNumberClient: myState.phoneNumberClient,
-        ifePhoto: myState.ifePhoto,
-        passportPhoto: myState.passportPhoto,
-        birthCertificatePhoto: myState.birthCertificatePhoto,
+        type_of_service: myState.type_of_serviceVC,
+        phoneNumberClient: myState.phoneNumberClientVC,
+        ifePhoto: myState.ifePhotoVC,
+        passportPhoto: myState.passportPhotoVC,
+        birthCertificatePhoto: myState.birthCertificatePhotoVC,
       });
 
       console.log(insertResult);
