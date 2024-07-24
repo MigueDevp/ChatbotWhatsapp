@@ -40,7 +40,7 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
         );
       } else if (response === "no") {
         return await flowDynamic(
-          "Gracias por tu tiempo. Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*."
+          "Gracias por tu tiempo. Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*."
         );
       } else {
         return await flowDynamic(
@@ -63,18 +63,19 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
   })
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
     await state.update({ birthCertificatePhotoVA: ctx.body });
-    const myState = state.getMyState();
-    const summaryVisa = `
+
+    /*const summaryVisa = `
       *SOLICITUD DE VISA AMERICANA:*
       Número de celular: ${myState.phoneNumberClientVA}
       Foto de Ife(INE): ${myState.ifePhotoVA}
       Foto de Pasaporte: ${myState.passportPhotoVA}
       Foto de Acta de nacimiento: ${myState.birthCertificatePhotoVA}
-    `;
+    `;*/
 
     try {
       const db = await connectDB();
       const collection = db.collection("cotizaciones");
+      const myState = state.getMyState();
 
       const insertResult = await collection.insertOne({
         type_of_service: myState.type_of_serviceVA,
@@ -92,7 +93,7 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
           body:
             `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para continuar con tu trámite de visa. Gracias por tu paciencia.` +
             "\n\n" +
-            "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*.",
+            "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*.",
         },
       ]);
     } catch (error) {

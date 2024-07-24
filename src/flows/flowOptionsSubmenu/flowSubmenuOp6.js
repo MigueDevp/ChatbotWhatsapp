@@ -32,8 +32,12 @@ const flowSubmenuOp6 = addKeyword(EVENTS.ACTION)
     "¿Para cuántas personas incluidas usted?",
     { capture: true },
     async (ctx, { state, flowDynamic }) => {
+      const numberOfPeopleTour = parseInt(ctx.body, 10);
+      if (isNaN(numberOfPeopleTour)) {
+        return fallBack();
+      }
       const myState = state.getMyState();
-      await state.update({ ...myState, numberOfPeopleTour: ctx.body });
+      await state.update({ ...myState, numberOfPeopleTour: numberOfPeopleTour });
 
       try {
         const db = await connectDB();
@@ -68,7 +72,7 @@ const flowSubmenuOp6 = addKeyword(EVENTS.ACTION)
             body:
               `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.nameTour}*.` +
               "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*",
+              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
           },
         ]);
       } catch (error) {

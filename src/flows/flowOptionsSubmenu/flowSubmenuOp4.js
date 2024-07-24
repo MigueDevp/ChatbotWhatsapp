@@ -10,7 +10,10 @@ const flowSubmenuOp4 = addKeyword(EVENTS.ACTION)
     "¿Cuál es tu nombre?",
     { capture: true },
     async (ctx, { state }) => {
-      await state.update({ nameAuto: ctx.body, type_of_serviceAuto: type_of_Service });
+      await state.update({
+        nameAuto: ctx.body,
+        type_of_serviceAuto: type_of_Service,
+      });
     }
   )
 
@@ -31,8 +34,12 @@ const flowSubmenuOp4 = addKeyword(EVENTS.ACTION)
     "¿Para cuántas personas incluidas usted?",
     { capture: true },
     async (ctx, { state }) => {
+      const numberOfPeopleAuto = parseInt(ctx.body, 10);
+      if (isNaN(numberOfPeopleAuto)) {
+        return fallBack();
+      }
       const myState = state.getMyState();
-      await state.update({ ...myState, numberOfPeopleAuto: ctx.body });
+      await state.update({ ...myState, numberOfPeopleAuto: numberOfPeopleAuto });
     }
   )
 
@@ -78,7 +85,7 @@ const flowSubmenuOp4 = addKeyword(EVENTS.ACTION)
             body:
               `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.nameAuto}*.` +
               "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*",
+              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
           },
         ]);
       } catch (error) {

@@ -1,5 +1,6 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
+const flowInactividad = require("../flowInactividad");
 
 const type_of_Service = "*COTIZACIÓN VIAJE NACIONAL*";
 
@@ -11,11 +12,14 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
     "¿Cuál es tu nombre?",
     { capture: true },
     async (ctx, { state }) => {
-      await state.update({ nameNational: ctx.body, type_of_serviceNational: type_of_Service });
+      await state.update({
+        nameNational: ctx.body,
+        type_of_serviceNational: type_of_Service,
+      });
     }
   )
   .addAnswer(
-    "¿Qué destino deseas visitar?",
+    "¿Qué destino deseas visitar?\n*(EJEMPLO):* Cancún",
     { capture: true },
     async (ctx, { state }) => {
       const myState = state.getMyState();
@@ -27,7 +31,7 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
     }
   )
   .addAnswer(
-    "¿Cuáles son sus fechas de interés?\n(Ejemplo: 12 de febrero al 18 de febrero)",
+    "¿Cuáles son sus fechas de interés?\n*(EJEMPLO:)* 12 de febrero al 18 de febrero",
     { capture: true },
     async (ctx, { state }) => {
       const myState = state.getMyState();
@@ -37,9 +41,14 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
   .addAnswer(
     "Número de personas incluidas usted",
     { capture: true },
-    async (ctx, { state }) => {
+    async (ctx, { state, fallBack }) => {
+      const numberOfPeople = parseInt(ctx.body, 10);
+      if (isNaN(numberOfPeople)) {
+        return fallBack();
+      }
+
       const myState = state.getMyState();
-      await state.update({ ...myState, peopleNational: ctx.body });
+      await state.update({ ...myState, peopleNational: numberOfPeople });
     }
   )
   .addAnswer(
@@ -53,7 +62,12 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
   .addAnswer(
     'Si su plan es todo incluido por favor escriba *"TODO INCLUIDO"*.\nSi es solo hospedaje, escriba *"HOSPEDAJE"*',
     { capture: true },
-    async (ctx, { state, flowDynamic }) => {
+    async (ctx, { state, flowDynamic, fallBack }) => {
+      const validResponse = ctx.body.toUpperCase();
+      if (validResponse !== "TODO INCLUIDO" && validResponse !== "HOSPEDAJE") {
+        return fallBack();
+      }
+
       const myState = state.getMyState();
       await state.update({ ...myState, planNational: ctx.body });
 
@@ -93,7 +107,7 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
             body:
               `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento.\nAgradecemos mucho tu paciencia, *${myState.nameNational}*.` +
               "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*",
+              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
           },
         ]);
       } catch (error) {

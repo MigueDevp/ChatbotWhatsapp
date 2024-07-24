@@ -36,7 +36,7 @@ Recuerda que nadie tiene la facultad de garantizarte la aprobación de la visa, 
         );
       } else if (response === "no") {
         return await flowDynamic(
-          "Gracias por tu tiempo. Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*."
+          "Gracias por tu tiempo. Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*."
         );
       } else {
         return await flowDynamic(
@@ -87,7 +87,7 @@ Recuerda que nadie tiene la facultad de garantizarte la aprobación de la visa, 
       return await flowDynamic(
         `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para continuar con tu trámite de visa. Gracias por tu paciencia.` +
           "\n\n" +
-          "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*."
+          "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*."
       );
     } catch (error) {
       console.error("Error MongoDB:", error);

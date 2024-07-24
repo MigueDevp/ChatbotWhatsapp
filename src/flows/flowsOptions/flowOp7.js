@@ -36,13 +36,12 @@ const flowOp7 = addKeyword(EVENTS.ACTION)
 
       const myState = state.getMyState();
 
-      const summaryBilling = `
-        *SOLICITUD DE FACTURACIÓN:*
+      const summaryBilling = 
+        `*SOLICITUD DE FACTURACIÓN:*
         Nombre completo del contratante: ${myState.fullNameF}
         Comprobante de pago: ${myState.paymentProof}
         Constancia fiscal: ${myState.fiscalCertificate}
-        Número de celular: ${myState.phoneNumberClientF}
-      `;
+        Número de celular: ${myState.phoneNumberClientF}`;
 
       try {
         const myState = state.getMyState();
@@ -66,9 +65,9 @@ const flowOp7 = addKeyword(EVENTS.ACTION)
           },
           {
             body:
-              `Tu solicitud ha sido correctamente enviada. En breve nos pondremos en contacto vía WhatsApp para continuar con tu facturación. Gracias por tu paciencia.` +
+              "Tu solicitud ha sido correctamente enviada. En breve nos pondremos en contacto vía WhatsApp para continuar con tu facturación. Gracias por tu paciencia." +
               "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*.",
+              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*.",
           },
         ]);
       } catch (error) {

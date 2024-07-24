@@ -7,7 +7,7 @@ const flowWelcome = addKeyword(EVENTS.WELCOME).addAnswer([
     "Puedes ver nuestra cartelera de viajes ingresando en el siguiente enlace \n" +
     "-> https://travelmr.com.mx/view/viajes \n" +
     "\n" +
-    "Si deseas ver el menú de opciones de este chatbot escribe la palabra: *MENÚ*",
+    "Si deseas ver el menú de opciones de este chatbot escribe la palabra: *INICIO*",
 ]);
 
 module.exports = flowWelcome;

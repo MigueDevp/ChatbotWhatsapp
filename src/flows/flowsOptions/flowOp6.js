@@ -39,7 +39,6 @@ const flowOp6 = addKeyword(EVENTS.ACTION)
         *SOLICITUD DE REMBOLSO:*
         Nombre completo del contratante: ${myState.fullNameRemb}
         Destino del contrato: ${myState.destinationRemb}
-        Motivo de la solicitud: ${myState.reasonRemb}
         Número de celular: ${myState.phoneNumberClientRemb}
       `;
 
@@ -67,7 +66,7 @@ const flowOp6 = addKeyword(EVENTS.ACTION)
             body:
               `Tu solicitud ha sido correctamente enviada. En breve nos pondremos en contacto vía WhatsApp para continuar con el proceso de rembolso. Gracias por tu paciencia.` +
               "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*",
+              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
           },
         ]);
       } catch (error) {

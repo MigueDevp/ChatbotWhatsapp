@@ -37,7 +37,6 @@ const flowOp4 = addKeyword(EVENTS.ACTION)
         *SOLICITUD DE CAMBIO DE RESERVA:*
         Nombre del contratante: ${myState.contractorNameChange}
         Destino del contrato: ${myState.contractDestinationChange}
-        Motivo del cambio: ${myState.changeReason}
         Número de celular: ${myState.phoneNumberClientChangeReservation}
       `;
 
@@ -65,7 +64,7 @@ const flowOp4 = addKeyword(EVENTS.ACTION)
             body:
               `Tu solicitud ha sido enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para poder autorizar tu cambio en tu reserva.\nAgradecemos mucho tu paciencia.` +
               "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*",
+              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
           },
         ]);
       } catch (error) {

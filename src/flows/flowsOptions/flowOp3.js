@@ -49,7 +49,7 @@ const flowOp3 = addKeyword(EVENTS.ACTION)
           return gotoFlow(flowSubmenuOp6);
         case "7":
           return await flowDynamic(
-            "Has salido. Puedes volver al menú principal escribiendo la palabra *MENU*."
+            "Has salido. Puedes volver al menú principal escribiendo la palabra *INICIO*."
           );
       }
     }

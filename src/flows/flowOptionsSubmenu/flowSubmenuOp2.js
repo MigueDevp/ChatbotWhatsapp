@@ -10,7 +10,10 @@ const flowSubmenuOp2 = addKeyword(EVENTS.ACTION)
     "¿Cuál es tu nombre?",
     { capture: true },
     async (ctx, { state }) => {
-      await state.update({ nameVan: ctx.body, type_of_serviceVan: type_of_Service });
+      await state.update({
+        nameVan: ctx.body,
+        type_of_serviceVan: type_of_Service,
+      });
     }
   )
 
@@ -78,7 +81,7 @@ const flowSubmenuOp2 = addKeyword(EVENTS.ACTION)
             body:
               `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.nameVan}*.` +
               "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *MENU*",
+              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
           },
         ]);
       } catch (error) {
