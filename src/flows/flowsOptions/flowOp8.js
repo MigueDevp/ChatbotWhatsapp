@@ -1,5 +1,7 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
+const transporter = require("../../../email/credentials/transporter");
+
 
 const type_of_Service = "*VISA AMERICANA*";
 
@@ -64,13 +66,15 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
     await state.update({ birthCertificatePhotoVA: ctx.body });
 
-    /*const summaryVisa = `
+    const myState = state.getMyState();
+
+    const summaryVisa = `
       *SOLICITUD DE VISA AMERICANA:*
       Número de celular: ${myState.phoneNumberClientVA}
       Foto de Ife(INE): ${myState.ifePhotoVA}
       Foto de Pasaporte: ${myState.passportPhotoVA}
       Foto de Acta de nacimiento: ${myState.birthCertificatePhotoVA}
-    `;*/
+    `;
 
     try {
       const db = await connectDB();
@@ -87,6 +91,17 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
 
       console.log(insertResult);
       console.log("Visa request has been sent to MongoDB!");
+
+      const sendToGmail = await transporter.sendMail({
+        from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+        to: "miguedevp@gmail.com",
+        subject: "Visa Americana",
+        text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryVisa}`,
+      });
+
+      console.log("Cotización correctamente enviada por GMAIL", {
+        summaryVisa,
+      });
 
       await flowDynamic([
         {

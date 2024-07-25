@@ -1,5 +1,6 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
+const transporter = require("../../../email/credentials/transporter");
 
 const type_of_Service = "*SOLICITUD DE ESTADO DE ADEUDO CLIENTE*";
 
@@ -34,6 +35,14 @@ const flowOp5 = addKeyword(EVENTS.ACTION)
         Número de celular: ${myState.phoneNumberClientStatus}
       `;
 
+      const summaryAdeudoShow = `
+        *SOLICITUD DE ESTADO DE ADEUDO:*
+        Nombre completo del contratante: ${myState.fullNameStatus}
+        Destino del contrato: ${myState.destinationStatus}
+        Número de celular: ${myState.phoneNumberClientStatus}
+      `;
+
+
       try {
         const db = await connectDB();
         const collection = db.collection("cotizaciones");
@@ -47,12 +56,22 @@ const flowOp5 = addKeyword(EVENTS.ACTION)
           phoneNumberClient: myState.phoneNumberClientStatus,
         });
 
-        console.log(insertResult);
         console.log("Request for account status has been sent to MongoDB!");
+
+        const sendToGmail = await transporter.sendMail({
+          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+          to: "miguedevp@gmail.com",
+          subject: "Solicitud estado de adeudo",
+          text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryAdeudo}`,
+        });
+
+        console.log("Cotización correctamente enviada por GMAIL", {
+          summaryAdeudo,
+        });
 
         await flowDynamic([
           {
-            body: `Este es el resumen de tu solicitud de estado de adeudo:\n${summaryAdeudo}`,
+            body: `Este es el resumen de tu solicitud de estado de adeudo:\n${summaryAdeudoShow}`,
           },
           {
             body:

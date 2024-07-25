@@ -1,5 +1,6 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
+const transporter = require("../../../email/credentials/transporter");
 
 const type_of_Service = "*SOLICITUD DE CAMBIO DE RESERVA*";
 
@@ -37,6 +38,14 @@ const flowOp4 = addKeyword(EVENTS.ACTION)
         *SOLICITUD DE CAMBIO DE RESERVA:*
         Nombre del contratante: ${myState.contractorNameChange}
         Destino del contrato: ${myState.contractDestinationChange}
+        Motivo de cambio: ${myState.changeReason}
+        Número de celular: ${myState.phoneNumberClientChangeReservation}
+      `;
+
+      const changeReservationShow= `
+        *SOLICITUD DE CAMBIO DE RESERVA:*
+        Nombre del contratante: ${myState.contractorNameChange}
+        Destino del contrato: ${myState.contractDestinationChange}
         Número de celular: ${myState.phoneNumberClientChangeReservation}
       `;
 
@@ -55,11 +64,19 @@ const flowOp4 = addKeyword(EVENTS.ACTION)
             myState.phoneNumberClientChangeReservation,
         });
 
-        console.log(insertResult);
-        console.log("Change reservation request has been sent to MongoDB!");
+        const sendToGmail = await transporter.sendMail({
+          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+          to: "miguedevp@gmail.com",
+          subject: "Solicitud de cambio de reserva",
+          text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${changeReservation}`,
+        });
+
+        console.log("Cotización correctamente enviada por GMAIL", {
+          changeReservation,
+        });
 
         await flowDynamic([
-          { body: `Este es el resumen de tu solicitud:\n${changeReservation}` },
+          { body: `Este es el resumen de tu solicitud:\n${changeReservationShow}` },
           {
             body:
               `Tu solicitud ha sido enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para poder autorizar tu cambio en tu reserva.\nAgradecemos mucho tu paciencia.` +

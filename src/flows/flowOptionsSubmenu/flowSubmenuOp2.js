@@ -1,5 +1,6 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
+const transporter = require("../../../email/credentials/transporter")
 
 const type_of_Service = "*COTIZACIÓN DE TRANSPORTE VAN*";
 
@@ -72,6 +73,17 @@ const flowSubmenuOp2 = addKeyword(EVENTS.ACTION)
           Movimientos adicionales en el destino: ${myState.movementsVan}
           Número de celular: ${myState.numberCellphoneClientVan}
         `;
+
+        const sendToGmail = await transporter.sendMail({
+          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+          to: "miguedevp@gmail.com",
+          subject: "Cotización de Van",
+          text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryVan}`,
+        });
+
+        console.log("Cotización correctamente enviada por GMAIL", {
+          summaryVan,
+        });
 
         await flowDynamic([
           {

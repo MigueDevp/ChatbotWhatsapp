@@ -1,6 +1,6 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
-
+const transporter = require("../../../email/credentials/transporter")
 const type_of_Service = "*COTIZACIÓN DE TRASLADO*";
 
 const flowSubmenuOp5 = addKeyword(EVENTS.ACTION)
@@ -42,7 +42,7 @@ const flowSubmenuOp5 = addKeyword(EVENTS.ACTION)
   .addAnswer(
     "¿Para cuántas personas incluidas usted?",
     { capture: true },
-    async (ctx, { state, flowDynamic }) => {
+    async (ctx, { state, flowDynamic, fallBack }) => {
       const numberOfPeople = parseInt(ctx.body, 10);
       if (isNaN(numberOfPeople)) {
         return fallBack();
@@ -76,6 +76,17 @@ const flowSubmenuOp5 = addKeyword(EVENTS.ACTION)
         Número de personas: ${myState.numberOfPeopleTransfer}
         Número de celular: ${myState.phoneNumberClientTransfer}
       `;
+
+      const sendToGmail = await transporter.sendMail({
+        from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+        to: "miguedevp@gmail.com",
+        subject: "Cotización de traslado",
+        text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryTransfer}`,
+      });
+
+      console.log("Cotización correctamente enviada por GMAIL", {
+        summaryTransfer,
+      });
 
         await flowDynamic([
           {

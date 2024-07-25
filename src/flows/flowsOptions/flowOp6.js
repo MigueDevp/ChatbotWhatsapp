@@ -1,5 +1,7 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
+const transporter = require("../../../email/credentials/transporter");
+
 
 const type_of_Service = "*SOLICITUD DE REMBOLSO*";
 
@@ -39,8 +41,16 @@ const flowOp6 = addKeyword(EVENTS.ACTION)
         *SOLICITUD DE REMBOLSO:*
         Nombre completo del contratante: ${myState.fullNameRemb}
         Destino del contrato: ${myState.destinationRemb}
+        Motivo: ${myState.reasonRemb}
         Número de celular: ${myState.phoneNumberClientRemb}
       `;
+
+      const summaryRembolsosShow = `
+      *SOLICITUD DE REMBOLSO:*
+      Nombre completo del contratante: ${myState.fullNameRemb}
+      Destino del contrato: ${myState.destinationRemb}
+      Número de celular: ${myState.phoneNumberClientRemb}
+    `;
 
       try {
         const db = await connectDB();
@@ -55,12 +65,22 @@ const flowOp6 = addKeyword(EVENTS.ACTION)
           phoneNumberClient: myState.phoneNumberClientRemb,
         });
 
-        console.log(insertResult);
         console.log("Request has been sent to MongoDB!");
+
+        const sendToGmail = await transporter.sendMail({
+          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+          to: "miguedevp@gmail.com",
+          subject: "Solicitud de rembolso",
+          text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryRembolsos}`,
+        });
+
+        console.log("Cotización correctamente enviada por GMAIL", {
+          summaryRembolsos,
+        });
 
         await flowDynamic([
           {
-            body: `Este es el resumen de tu solicitud de rembolso:\n${summaryRembolsos}`,
+            body: `Este es el resumen de tu solicitud de rembolso:\n${summaryRembolsosShow}`,
           },
           {
             body:

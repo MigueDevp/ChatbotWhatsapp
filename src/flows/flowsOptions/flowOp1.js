@@ -1,6 +1,6 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
-const flowInactividad = require("../flowInactividad");
+const transporter = require("../../../email/credentials/transporter");
 
 const type_of_Service = "*COTIZACIÓN VIAJE NACIONAL*";
 
@@ -87,7 +87,6 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
           phoneNumberClientNational: myState.phoneNumberClientNational,
         });
 
-        console.log(insertResult);
         console.log("Summary has been sent to MongoDB!");
 
         const summaryNational = `
@@ -100,6 +99,17 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
         Plan: ${myState.planNational}
         Número de celular: ${myState.phoneNumberClientNational}
       `;
+
+        const sendToGmail = await transporter.sendMail({
+          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+          to: "miguedevp@gmail.com",
+          subject: "Cotización de Viaje Nacional",
+          text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryNational}`,
+        });
+
+        console.log("Cotización correctamente enviada por GMAIL", {
+          summaryNational,
+        });
 
         await flowDynamic([
           { body: `Este es el resumen de tu cotización:\n${summaryNational}` },

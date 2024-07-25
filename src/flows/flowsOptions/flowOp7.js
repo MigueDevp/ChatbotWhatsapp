@@ -1,5 +1,7 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
+const transporter = require("../../../email/credentials/transporter");
+
 
 const type_of_Service = "*FACTURACIÓN*";
 
@@ -56,8 +58,19 @@ const flowOp7 = addKeyword(EVENTS.ACTION)
           phoneNumberClient: myState.phoneNumberClientF,
         });
 
-        console.log(insertResult);
         console.log("Request has been sent to MongoDB!");
+
+        
+        const sendToGmail = await transporter.sendMail({
+          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+          to: "miguedevp@gmail.com",
+          subject: "Facturación",
+          text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryBilling}`,
+        });
+
+        console.log("Cotización correctamente enviada por GMAIL", {
+          summaryBilling,
+        });
 
         await flowDynamic([
           {

@@ -1,5 +1,7 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
+const transporter = require("../../../email/credentials/transporter");
+
 
 const type_of_Service = "*VISA CANADIENSE*";
 
@@ -60,14 +62,14 @@ Recuerda que nadie tiene la facultad de garantizarte la aprobación de la visa, 
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
     await state.update({ birthCertificatePhotoVC: ctx.body });
     const myState = state.getMyState();
-    const summaryVisa = `
+    const summaryVisaC = `
       *SOLICITUD DE VISA CANADIENSE:*
       Número de celular: ${myState.phoneNumberClientVC}
       Foto de Ife(INE): ${myState.ifePhotoVC}
       Foto de Pasaporte: ${myState.passportPhotoVC}
       Foto de Acta de nacimiento: ${myState.birthCertificatePhotoVC}
     `;
-    console.log(summaryVisa);
+    console.log(summaryVisaC);
 
     try {
       const db = await connectDB();
@@ -83,6 +85,17 @@ Recuerda que nadie tiene la facultad de garantizarte la aprobación de la visa, 
 
       console.log(insertResult);
       console.log("Visa request has been sent to MongoDB!");
+
+      const sendToGmail = await transporter.sendMail({
+        from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+        to: "miguedevp@gmail.com",
+        subject: "Visa Canadiense",
+        text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryVisaC}`,
+      });
+
+      console.log("Cotización correctamente enviada por GMAIL", {
+        summaryVisaC,
+      });
 
       return await flowDynamic(
         `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para continuar con tu trámite de visa. Gracias por tu paciencia.` +
