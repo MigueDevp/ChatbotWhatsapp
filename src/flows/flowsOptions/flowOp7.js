@@ -24,6 +24,7 @@ const flowOp7 = addKeyword(EVENTS.ACTION)
     { capture: true },
     async (ctx, { state }) => {
       await state.update({ paymentProof: ctx.body });
+      console.log(ctx.body);
     }
   )
 
@@ -35,6 +36,8 @@ const flowOp7 = addKeyword(EVENTS.ACTION)
         fiscalCertificate: ctx.body,
         phoneNumberClientF: ctx.from,
       });
+
+      console.log(ctx.body);
 
       const myState = state.getMyState();
 

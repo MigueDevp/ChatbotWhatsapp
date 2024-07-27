@@ -1,6 +1,6 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
-const transporter = require("../../../email/credentials/transporter")
+const transporter = require("../../../email/credentials/transporter");
 const type_of_Service = "*COTIZACIÓN DE SERVICIO DE RENTA DE AUTO*";
 
 const flowSubmenuOp4 = addKeyword(EVENTS.ACTION)
@@ -33,13 +33,16 @@ const flowSubmenuOp4 = addKeyword(EVENTS.ACTION)
   .addAnswer(
     "¿Para cuántas personas incluidas usted?",
     { capture: true },
-    async (ctx, { state }) => {
+    async (ctx, { state, fallBack }) => {
       const numberOfPeopleAuto = parseInt(ctx.body, 10);
       if (isNaN(numberOfPeopleAuto)) {
         return fallBack();
       }
       const myState = state.getMyState();
-      await state.update({ ...myState, numberOfPeopleAuto: numberOfPeopleAuto });
+      await state.update({
+        ...myState,
+        numberOfPeopleAuto: numberOfPeopleAuto,
+      });
     }
   )
 
@@ -50,61 +53,62 @@ const flowSubmenuOp4 = addKeyword(EVENTS.ACTION)
       const myState = state.getMyState();
       await state.update({ ...myState, rentalDateAuto: ctx.body });
 
-      try {
-        const db = await connectDB();
-        const collection = db.collection("cotizaciones");
-        const myState = state.getMyState();
-        console.log("Connected Successfully to MongoDB!");
+      const myStateNow = state.getMyState();
 
-        const insertResult = await collection.insertOne({
-          type_of_service: myState.type_of_serviceAuto,
-          name: myState.nameAuto,
-          pointOfCollection: myState.pointOfCollection,
-          numberOfPeople: myState.numberOfPeopleAuto,
-          rentalDate: myState.rentalDateAuto,
-          phoneNumberClientAuto: myState.phoneNumberClientAuto,
-        });
+      const summaryAuto = `
+        *COTIZACIÓN DE AUTO:*
+        Nombre: ${myStateNow.nameAuto}
+        Punto de recolección: ${myStateNow.pointOfCollection}
+        Número de personas: ${myStateNow.numberOfPeopleAuto}
+        Fecha deseada: ${myStateNow.rentalDateAuto}
+        Número de celular: ${myStateNow.phoneNumberClientAuto}
+      `;
 
-        console.log(insertResult);
-        console.log("Summary has been sent to MongoDB!");
+      await flowDynamic([
+        {
+          body: `Este es el resumen de tu cotización de auto:\n${summaryAuto}`,
+        },
+        {
+          body:
+            `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myStateNow.nameAuto}*.` +
+            "\n\n" +
+            "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
+        },
+      ]);
 
-        const summaryAuto = `
-          *COTIZACIÓN DE AUTO:*
-          Nombre: ${myState.nameAuto}
-          Punto de recolección: ${myState.pointOfCollection}
-          Número de personas: ${myState.numberOfPeopleAuto}
-          Fecha deseada: ${myState.rentalDateAuto}
-          Número de celular: ${myState.phoneNumberClientAuto}
-        `;
+      (async () => {
+        try {
+          const db = await connectDB();
+          const collection = db.collection("cotizaciones");
 
-        const sendToGmail = await transporter.sendMail({
-          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
-          to: "miguedevp@gmail.com",
-          subject: "Cotización de renta de auto",
-          text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryAuto}`,
-        });
+          await collection.insertOne({
+            type_of_service: myStateNow.type_of_serviceAuto,
+            name: myStateNow.nameAuto,
+            pointOfCollection: myStateNow.pointOfCollection,
+            numberOfPeople: myStateNow.numberOfPeopleAuto,
+            rentalDate: myStateNow.rentalDateAuto,
+            phoneNumberClientAuto: myStateNow.phoneNumberClientAuto,
+          });
 
-        console.log("Cotización correctamente enviada por GMAIL", {
-          summaryAuto,
-        });
+          console.log("Summary has been sent to MongoDB!");
 
-        await flowDynamic([
-          {
-            body: `Este es el resumen de tu cotización de auto:\n${summaryAuto}`,
-          },
-          {
-            body:
-              `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.nameAuto}*.` +
-              "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
-          },
-        ]);
-      } catch (error) {
-        console.error("Error MongoDB:", error);
-        await flowDynamic(
-          "Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde."
-        );
-      }
+          await transporter.sendMail({
+            from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+            to: "miguedevp@gmail.com",
+            subject: "Cotización de renta de auto",
+            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryAuto}`,
+          });
+
+          console.log("Cotización correctamente enviada por GMAIL", {
+            summaryAuto,
+          });
+        } catch (error) {
+          console.error("Error MongoDB:", error);
+          await flowDynamic(
+            "Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde."
+          );
+        }
+      })();
     }
   );
 

@@ -1,12 +1,10 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
-const transporter = require("../../../email/credentials/transporter")
+const transporter = require("../../../email/credentials/transporter");
 const type_of_Service = "*COTIZACIÓN DE TRANSPORTE SPRINTER*";
-
 
 const flowSubmenuOp3 = addKeyword(EVENTS.ACTION)
   .addAnswer("Has elegido cotizar *Sprinter*, con gusto te damos seguimiento.")
-
   .addAnswer(
     "¿Cuál es tu nombre?",
     { capture: true },
@@ -17,7 +15,6 @@ const flowSubmenuOp3 = addKeyword(EVENTS.ACTION)
       });
     }
   )
-
   .addAnswer(
     "¿Cuál es el destino de la Sprinter? \n*(EJEMPLO):* Puerto Vallarta",
     { capture: true },
@@ -30,7 +27,6 @@ const flowSubmenuOp3 = addKeyword(EVENTS.ACTION)
       });
     }
   )
-
   .addAnswer(
     "¿Cuál es la fecha en la que planeas realizar este viaje?",
     { capture: true },
@@ -39,7 +35,6 @@ const flowSubmenuOp3 = addKeyword(EVENTS.ACTION)
       await state.update({ ...myState, travelDateSpr: ctx.body });
     }
   )
-
   .addAnswer(
     "¿Qué movimientos o paradas adicionales necesitas hacer una vez en el destino? Esto nos ayuda a entender mejor tus necesidades de transporte en el lugar.",
     { capture: true },
@@ -47,61 +42,60 @@ const flowSubmenuOp3 = addKeyword(EVENTS.ACTION)
       const myState = state.getMyState();
       await state.update({ ...myState, movementsSpr: ctx.body });
 
-      try {
-        const db = await connectDB();
-        const myState = state.getMyState();
-        const collection = db.collection("cotizaciones");
-        console.log("Connected Successfully to MongoDB!");
+      const myStateNow = state.getMyState();
 
-        const insertResult = await collection.insertOne({
-          type_of_service: myState.type_of_serviceSpr,
-          name: myState.nameSpr,
-          destination: myState.destinationSpr,
-          travelDate: myState.travelDateSpr,
-          movements: myState.movementsSpr,
-          numberCellphoneClient: myState.numberCellphoneClientSpr,
-        });
+      const summarySprinter = `
+        *COTIZACIÓN DE SPRINTER:*
+        Nombre: ${myStateNow.nameSpr}
+        Destino de la Sprinter: ${myStateNow.destinationSpr}
+        Fecha del viaje: ${myStateNow.travelDateSpr}
+        Movimientos adicionales en el destino: ${myStateNow.movementsSpr}
+        Número de celular: ${myStateNow.numberCellphoneClientSpr}
+      `;
 
-        console.log(insertResult);
-        console.log("Summary has been sent to MongoDB!");
+      await flowDynamic([
+        {
+          body: `Este es el resumen de tu cotización de Sprinter:\n${summarySprinter}`,
+        },
+        {
+          body:
+            `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.nameSpr}*.` +
+            "\n\n" +
+            "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
+        },
+      ]);
 
-        const summarySprinter = `
-          *COTIZACIÓN DE SPRINTER:*
-          Nombre: ${myState.nameSpr}
-          Destino de la Sprinter: ${myState.destinationSpr}
-          Fecha del viaje: ${myState.travelDateSpr}
-          Movimientos adicionales en el destino: ${myState.movementsSpr}
-          Número de celular: ${myState.numberCellphoneClientSpr}
-        `;
+      (async () => {
+        try {
+          const db = await connectDB();
+          const collection = db.collection("cotizaciones");
+          const myState = state.getMyState();
 
-        const sendToGmail = await transporter.sendMail({
-          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
-          to: "miguedevp@gmail.com",
-          subject: "Cotización de Sprinter",
-          text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summarySprinter}`,
-        });
+          await collection.insertOne({
+            type_of_service: myState.type_of_serviceSpr,
+            name: myState.nameSpr,
+            destination: myState.destinationSpr,
+            travelDate: myState.travelDateSpr,
+            movements: myState.movementsSpr,
+            numberCellphoneClient: myState.numberCellphoneClientSpr,
+          });
 
-        console.log("Cotización correctamente enviada por GMAIL", {
-          summarySprinter,
-        });
+          console.log("Summary has been sent to MongoDB!");
 
-        await flowDynamic([
-          {
-            body: `Este es el resumen de tu cotización de Sprinter:\n${summarySprinter}`,
-          },
-          {
-            body:
-              `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.nameSpr}*.` +
-              "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
-          },
-        ]);
-      } catch (error) {
-        console.error("Error MongoDB:", error);
-        await flowDynamic(
-          "Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde."
-        );
-      }
+          await transporter.sendMail({
+            from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+            to: "miguedevp@gmail.com",
+            subject: "Cotización de Sprinter",
+            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summarySprinter}`,
+          });
+
+          console.log("Cotización correctamente enviada por GMAIL", {
+            summarySprinter,
+          });
+        } catch (error) {
+          console.error("Error MongoDB:", error);
+        }
+      })();
     }
   );
 

@@ -95,78 +95,76 @@ const flowOp2 = addKeyword(EVENTS.ACTION)
     }
   )
   .addAnswer(
-    'Si su plan es todo incluido por favor escriba *"TODO INCLUIDO"*.\nSi es solo hospedaje, escriba *"HOSPEDAJE"*',
-    { capture: true },
+    'Si su plan es todo incluido por favor escriba *"TODO"*.\nSi es solo hospedaje, escriba *"HOSPEDAJE"*',
+    { capture: true, delay: 0 },
     async (ctx, { state, flowDynamic, fallBack }) => {
       const validResponse = ctx.body.toUpperCase();
-      if (validResponse !== "TODO INCLUIDO" && validResponse !== "HOSPEDAJE") {
+
+      if (validResponse !== "TODO" && validResponse !== "HOSPEDAJE") {
         return fallBack();
       }
 
+      const planInternational = validResponse === "TODO" ? "Todo Incluído" : "Hospedaje";
+
       const myState = state.getMyState();
-      await state.update({ ...myState, planInternational: ctx.body });
+      await state.update({ ...myState, planInternational });
 
-      try {
-        const db = await connectDB();
-        const myState = state.getMyState();
-        const collection = db.collection("cotizaciones");
-        console.log("Connected Successfully to MongoDB!");
+      const updatedState = state.getMyState();
 
-        const insertResult = await collection.insertOne({
-          type_of_service: myState.type_of_serviceInternational,
-          name: myState.nameInternational,
-          destinationInternational: myState.destinationInternational,
-          travelMonth: myState.travelMonthInternational,
-          travelDays: myState.travelDaysInternational,
-          peopleInternational: myState.peopleInternational,
-          minorsInternational: myState.minorsInternational,
-          planInternational: myState.planInternational,
-          phoneNumberClientInternational:
-            myState.phoneNumberClientInternational,
-        });
+      const summaryInternational = `
+        *COTIZACIÓN DE DESTINO INTERNACIONAL:*
+        Nombre: ${updatedState.nameInternational}
+        Destino: ${updatedState.destinationInternational}
+        Mes deseado para viajar: ${updatedState.travelMonthInternational}
+        Días de viaje: ${updatedState.travelDaysInternational}
+        Número de personas: ${updatedState.peopleInternational}
+        Menores de edad (edades): ${updatedState.minorsInternational}
+        Plan: ${updatedState.planInternational}
+        Número de celular: ${updatedState.phoneNumberClientInternational}
+      `;
 
-        console.log(insertResult);
-        console.log("Summary has been sent to MongoDB!");
+      await flowDynamic([
+        { body: `Este es el resumen de tu cotización:\n${summaryInternational}` },
+        {
+          body:
+            `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento.\nAgradecemos mucho tu paciencia, *${updatedState.nameInternational}*.` +
+            "\n\n" +
+            "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
+        },
+      ]);
 
-        const summaryInternational = `
-          *COTIZACIÓN DE DESTINO INTERNACIONAL:*
-          Nombre: ${myState.nameInternational}
-          Destino: ${myState.destinationInternational}
-          Mes deseado para viajar: ${myState.travelMonthInternational}
-          Días de viaje: ${myState.travelDaysInternational}
-          Número de personas: ${myState.peopleInternational}
-          Menores de edad (edades): ${myState.minorsInternational}
-          Plan: ${myState.planInternational}
-          Número de celular: ${myState.phoneNumberClientInternational}
-        `;
+      (async () => {
+        try {
+          const db = await connectDB();
+          const collection = db.collection("cotizaciones");
+          const updatedState = state.getMyState(); 
 
-        const sendToGmail = await transporter.sendMail({
-          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
-          to: "miguedevp@gmail.com",
-          subject: "Cotización de Viaje Internacional",
-          text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryInternational}`,
-        });
+          await collection.insertOne({
+            type_of_service: updatedState.type_of_serviceInternational,
+            name: updatedState.nameInternational,
+            destinationInternational: updatedState.destinationInternational,
+            travelMonth: updatedState.travelMonthInternational,
+            travelDays: updatedState.travelDaysInternational,
+            peopleInternational: updatedState.peopleInternational,
+            minorsInternational: updatedState.minorsInternational,
+            planInternational: updatedState.planInternational,
+            phoneNumberClientInternational: updatedState.phoneNumberClientInternational,
+          });
 
-        console.log("Cotización correctamente enviada por GMAIL", {
-          summaryInternational,
-        });
+          console.log("Summary has been sent to MongoDB!");
 
-        
+          await transporter.sendMail({
+            from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+            to: "miguedevp@gmail.com",
+            subject: "Cotización de Viaje Internacional",
+            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryInternational}`,
+          });
 
-        await flowDynamic([
-          {
-            body: `Este es el resumen de tu cotización:\n${summaryInternational}`,
-          },
-          {
-            body:
-              `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento.\nAgradecemos mucho tu paciencia, *${myState.nameInternational}*.` +
-              "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
-          },
-        ]);
-      } catch (error) {
-        console.error("Error MongoDB:", error);
-      }
+          console.log("Cotización correctamente enviada por GMAIL", { summaryInternational });
+        } catch (error) {
+          console.error("Error MongoDB:", error);
+        }
+      })();
     }
   );
 

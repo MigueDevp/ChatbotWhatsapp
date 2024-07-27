@@ -22,67 +22,65 @@ const flowOp5 = addKeyword(EVENTS.ACTION)
     "¿Cuál es el destino del contrato?\n*(Ejemplo):* Cancún.",
     { capture: true },
     async (ctx, { state, flowDynamic }) => {
+      const myState = state.getMyState();
       await state.update({
+        ...myState,
         destinationStatus: ctx.body,
         phoneNumberClientStatus: ctx.from,
       });
 
-      const myState = state.getMyState();
-      const summaryAdeudo = `
-        *SOLICITUD DE ESTADO DE ADEUDO:*
-        Nombre completo del contratante: ${myState.fullNameStatus}
-        Destino del contrato: ${myState.destinationStatus}
-        Número de celular: ${myState.phoneNumberClientStatus}
-      `;
-
+      const myStateNow = state.getMyState();
       const summaryAdeudoShow = `
         *SOLICITUD DE ESTADO DE ADEUDO:*
-        Nombre completo del contratante: ${myState.fullNameStatus}
-        Destino del contrato: ${myState.destinationStatus}
-        Número de celular: ${myState.phoneNumberClientStatus}
+        Nombre completo del contratante: ${myStateNow.fullNameStatus}
+        Destino del contrato: ${myStateNow.destinationStatus}
+        Número de celular: ${myStateNow.phoneNumberClientStatus}
       `;
 
+      await flowDynamic([
+        {
+          body: `Este es el resumen de tu solicitud de estado de adeudo:\n${summaryAdeudoShow}`,
+        },
+        {
+          body:
+            `Tu solicitud ha sido correctamente enviada. En breve nos pondremos en contacto vía WhatsApp para brindarte tu *ESTADO DE ADEUDO*. Gracias por tu paciencia.` +
+            "\n\n" +
+            "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
+        },
+      ]);
 
-      try {
-        const db = await connectDB();
-        const collection = db.collection("cotizaciones");
-        const myState = state.getMyState();
-        console.log("Connected Successfully to MongoDB!");
+      (async () => {
+        try {
+          const db = await connectDB();
+          const collection = db.collection("cotizaciones");
+          const myState = state.getMyState();
 
-        const insertResult = await collection.insertOne({
-          type_of_service: myState.type_of_serviceStatus,
-          fullName: myState.fullNameStatus,
-          destination: myState.destinationStatus,
-          phoneNumberClient: myState.phoneNumberClientStatus,
-        });
+          await collection.insertOne({
+            type_of_service: myState.type_of_serviceStatus,
+            fullName: myState.fullNameStatus,
+            destination: myState.destinationStatus,
+            phoneNumberClient: myState.phoneNumberClientStatus,
+          });
 
-        console.log("Request for account status has been sent to MongoDB!");
+          console.log("Request for account status has been sent to MongoDB!");
 
-        const sendToGmail = await transporter.sendMail({
-          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
-          to: "miguedevp@gmail.com",
-          subject: "Solicitud estado de adeudo",
-          text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryAdeudo}`,
-        });
+          await transporter.sendMail({
+            from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+            to: "miguedevp@gmail.com",
+            subject: "Solicitud estado de adeudo",
+            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryAdeudoShow}`,
+          });
 
-        console.log("Cotización correctamente enviada por GMAIL", {
-          summaryAdeudo,
-        });
-
-        await flowDynamic([
-          {
-            body: `Este es el resumen de tu solicitud de estado de adeudo:\n${summaryAdeudoShow}`,
-          },
-          {
-            body:
-              `Tu solicitud ha sido correctamente enviada. En breve nos pondremos en contacto vía WhatsApp para brindarte tu *ESTADO DE ADEUDO*. Gracias por tu paciencia.` +
-              "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
-          },
-        ]);
-      } catch (error) {
-        console.error("Error MongoDB:", error);
-      }
+          console.log("Cotización correctamente enviada por GMAIL", {
+            summaryAdeudoShow,
+          });
+        } catch (error) {
+          console.error("Error MongoDB:", error);
+          await flowDynamic(
+            "Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde."
+          );
+        }
+      })();
     }
   );
 

@@ -11,8 +11,8 @@ const flowOp9 = require("./flowsOptions/flowOp9");
 const flowOp10 = require("./flowsOptions/flowOp10");
 
 const flowMenu = addKeyword(["inicio", "inico", "inicp", "inicip"]).addAnswer(
-  "Este es el menu de opciones \n" +
-    "\n" +
+  "ESTE ES EL MENÚ DE OPCIONES \n" +
+    "\n\n" +
     "1. Cotizar destino *nacional* ✈️🌎 \n" +
     "2. Cotizar destino *internacional* 🌏✈️\n" +
     "3. Cotizar otros servicios 🚎 \n" +
@@ -25,7 +25,7 @@ const flowMenu = addKeyword(["inicio", "inico", "inicp", "inicip"]).addAnswer(
     "10. Vuelos ✈️↔️\n" +
     "11. Salir" +
     "\n" +
-    "\n" +
+    "\n\n" +
     "*Por favor ingresa una opción acorde a su número* \n" +
     "\n" +
     "Por ejemplo: *1*",

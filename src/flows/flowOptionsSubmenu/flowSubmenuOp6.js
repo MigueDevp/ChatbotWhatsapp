@@ -1,6 +1,6 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
-const transporter = require("../../../email/credentials/transporter")
+const transporter = require("../../../email/credentials/transporter");
 const type_of_Service = "*COTIZACIÓN DE TOUR*";
 
 const flowSubmenuOp6 = addKeyword(EVENTS.ACTION)
@@ -21,7 +21,9 @@ const flowSubmenuOp6 = addKeyword(EVENTS.ACTION)
     "¿Cuál es el destino del tour que deseas cotizar?\n*(EJEMPLO):* Ciudad de México.",
     { capture: true },
     async (ctx, { state }) => {
+      const myState = state.getMyState();
       await state.update({
+        ...myState,
         destinationTour: ctx.body,
         numberCellClientTour: ctx.from,
       });
@@ -31,67 +33,83 @@ const flowSubmenuOp6 = addKeyword(EVENTS.ACTION)
   .addAnswer(
     "¿Para cuántas personas incluidas usted?",
     { capture: true },
-    async (ctx, { state, flowDynamic }) => {
+    async (ctx, { state, fallBack }) => {
       const numberOfPeopleTour = parseInt(ctx.body, 10);
       if (isNaN(numberOfPeopleTour)) {
         return fallBack();
       }
       const myState = state.getMyState();
-      await state.update({ ...myState, numberOfPeopleTour: numberOfPeopleTour });
+      await state.update({
+        ...myState,
+        numberOfPeopleTour: numberOfPeopleTour,
+      });
+    }
+  )
 
-      try {
-        const db = await connectDB();
-        const myState = state.getMyState();
-        const collection = db.collection("cotizaciones");
-        console.log("Connected Successfully to MongoDB!");
+  .addAnswer(
+    "¿Cuál es la fecha deseada para el tour?\n*(Ejemplo):* 12 de febrero",
+    { capture: true },
+    async (ctx, { state, flowDynamic }) => {
+      const myState = state.getMyState();
+      await state.update({ ...myState, tourDate: ctx.body });
 
-        const insertResult = await collection.insertOne({
-          type_of_service: myState.type_of_serviceTour,
-          name: myState.nameTour,
-          destination: myState.destinationTour,
-          numberOfPeople: myState.numberOfPeopleTour,
-          numberCellClient: myState.numberCellClientTour,
-        });
+      const myStateNow = state.getMyState();
 
-        console.log(insertResult);
-        console.log("Summary has been sent to MongoDB!");
-
-        const summaryTour = `
+      const summaryTour = `
         *COTIZACIÓN DE TOUR:*
-        Nombre: ${myState.nameTour}
-        Destino del tour: ${myState.destinationTour}
-        Número de personas: ${myState.numberOfPeopleTour}
-        Número de celular: ${myState.numberCellClientTour}
+        Nombre: ${myStateNow.nameTour}
+        Destino del tour: ${myStateNow.destinationTour}
+        Número de personas: ${myStateNow.numberOfPeopleTour}
+        Fecha deseada: ${myStateNow.tourDate}
+        Número de celular: ${myStateNow.numberCellClientTour}
       `;
 
-      const sendToGmail = await transporter.sendMail({
-        from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
-        to: "miguedevp@gmail.com",
-        subject: "Cotización de tour",
-        text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryTour}`,
-      });
+      await flowDynamic([
+        {
+          body: `Este es el resumen de tu cotización de tour:\n${summaryTour}`,
+        },
+        {
+          body:
+            `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.nameTour}*.` +
+            "\n\n" +
+            "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
+        },
+      ]);
 
-      console.log("Cotización correctamente enviada por GMAIL", {
-        summaryTour,
-      });
+      (async () => {
+        try {
+          const db = await connectDB();
+          const collection = db.collection("cotizaciones");
+          const myState = state.getMyState();
 
-        await flowDynamic([
-          {
-            body: `Este es el resumen de tu cotización de tour:\n${summaryTour}`,
-          },
-          {
-            body:
-              `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento. Agradecemos mucho tu paciencia, *${myState.nameTour}*.` +
-              "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
-          },
-        ]);
-      } catch (error) {
-        console.error("Error MongoDB:", error);
-        await flowDynamic(
-          "Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde."
-        );
-      }
+          await collection.insertOne({
+            type_of_service: myState.type_of_serviceTour,
+            name: myState.nameTour,
+            destination: myState.destinationTour,
+            numberOfPeople: myState.numberOfPeopleTour,
+            tourDate: myState.tourDate,
+            numberCellClient: myState.numberCellClientTour,
+          });
+
+          console.log("Summary has been sent to MongoDB!");
+
+          await transporter.sendMail({
+            from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+            to: "miguedevp@gmail.com",
+            subject: "Cotización de tour",
+            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryTour}`,
+          });
+
+          console.log("Cotización correctamente enviada por GMAIL", {
+            summaryTour,
+          });
+        } catch (error) {
+          console.error("Error MongoDB:", error);
+          await flowDynamic(
+            "Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde."
+          );
+        }
+      })();
     }
   );
 

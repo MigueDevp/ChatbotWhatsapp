@@ -31,9 +31,9 @@ const flowSubmenuOp5 = require("./src/flows/flowOptionsSubmenu/flowSubmenuOp5");
 const flowSubmenuOp6 = require("./src/flows/flowOptionsSubmenu/flowSubmenuOp6");
 //FLOWS CON FUNCIONES DIFERENTES
 const flowInactividad = require("./src/flows/flowInactividad");
-const flowRecibirDocumento = require("./src/flows/flowRecibirDocumento")
-const flowRecibirMedia = require("./src/flows/flowRecibirMedia");
 
+const flowRecibirDocumento = require("./src/flows/flowsOptions/flowOp7")
+const flowRecibirMedia= require("./src/flows/flowsOptions/flowOp7");
 
 //FUNCION PRINCIPAL
 const main = async () => {

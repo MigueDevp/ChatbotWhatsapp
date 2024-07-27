@@ -2,7 +2,6 @@ const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
 const transporter = require("../../../email/credentials/transporter");
 
-
 const type_of_Service = "*COTIZACIÓN DE VUELO*";
 
 const flowOp10 = addKeyword(EVENTS.ACTION)
@@ -33,8 +32,8 @@ const flowOp10 = addKeyword(EVENTS.ACTION)
     "¿Su vuelo es sencillo o redondo?\n\nSi su vuelo es sencillo escriba *SENCILLO*\nSi su vuelo es redondo escriba *REDONDO*",
     { capture: true },
     async (ctx, { state, fallBack }) => {
-      const flightType = ctx.body.toUpperCase();
-      if (flightType !== "SENCILLO" && flightType !== "REDONDO") {
+      const flightType = ctx.body.toLowerCase();
+      if (flightType !== "sencillo" && flightType !== "redondo") {
         return fallBack();
       }
       const myState = state.getMyState();
@@ -69,64 +68,59 @@ const flowOp10 = addKeyword(EVENTS.ACTION)
       const myState = state.getMyState();
       await state.update({ ...myState, flightMinors: ctx.body });
 
-      try {
-        const db = await connectDB();
-        const collection = db.collection("cotizaciones");
-        const myState = state.getMyState();
+      const updatedState = state.getMyState();
 
-        const insertResult = await collection.insertOne({
-          type_of_service: myState.type_of_serviceFlight,
-          name: myState.nameFlight,
-          destinationFlight: myState.destinationFlight,
-          flightType: myState.flightType,
-          flightDates: myState.flightDates,
-          flightPeople: myState.flightPeople,
-          flightMinors: myState.flightMinors,
-          phoneNumberClientFlight: myState.phoneNumberClientFlight,
-        });
+      const summaryFlight = `
+        *COTIZACIÓN DE VUELO:*
+        Nombre: ${updatedState.nameFlight}
+        Destino: ${updatedState.destinationFlight}
+        Tipo de vuelo: ${updatedState.flightType}
+        Fechas de interés: ${updatedState.flightDates}
+        Número de personas: ${updatedState.flightPeople}
+        Menores de edad (edades): ${updatedState.flightMinors}
+        Número de celular: ${updatedState.phoneNumberClientFlight}
+      `;
 
-        console.log(insertResult);
-        console.log("Flight quotation has been sent to MongoDB!");
+      await flowDynamic([
+        { body: `Este es el resumen de tu cotización de vuelo:\n${summaryFlight}` },
+        {
+          body:
+            `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento.\nAgradecemos mucho tu paciencia, *${updatedState.nameFlight}*.` +
+            "\n\n" +
+            "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
+        },
+      ]);
 
-        const summaryFlight = `
-          *COTIZACIÓN DE VUELO:*
-          Nombre: ${myState.nameFlight}
-          Destino: ${myState.destinationFlight}
-          Tipo de vuelo: ${myState.flightType}
-          Fechas de interés: ${myState.flightDates}
-          Número de personas: ${myState.flightPeople}
-          Menores de edad (edades): ${myState.flightMinors}
-          Número de celular: ${myState.phoneNumberClientFlight}
-        `;
+      (async () => {
+        try {
+          const db = await connectDB();
+          const collection = db.collection("cotizaciones");
 
-        const sendToGmail = await transporter.sendMail({
-          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
-          to: "miguedevp@gmail.com",
-          subject: "Cotización de vuelo",
-          text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryFlight}`,
-        });
-  
-        console.log("Cotización correctamente enviada por GMAIL", {
-          summaryFlight,
-        });
+          await collection.insertOne({
+            type_of_service: updatedState.type_of_serviceFlight,
+            name: updatedState.nameFlight,
+            destinationFlight: updatedState.destinationFlight,
+            flightType: updatedState.flightType,
+            flightDates: updatedState.flightDates,
+            flightPeople: updatedState.flightPeople,
+            flightMinors: updatedState.flightMinors,
+            phoneNumberClientFlight: updatedState.phoneNumberClientFlight,
+          });
 
-        await flowDynamic([
-          {
-            body: `Este es el resumen de tu cotización de vuelo:\n${summaryFlight}`,
-          },
-          {
-            body:
-              `Tu información ha sido correctamente enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para darte seguimiento.\nAgradecemos mucho tu paciencia, *${myState.nameFlight}*.` +
-              "\n\n" +
-              "Si necesitas seguir usando nuestro servicio puedes volver al menú principal escribiendo la palabra *INICIO*",
-          },
-        ]);
-      } catch (error) {
-        console.error("Error MongoDB:", error);
-        await flowDynamic(
-          "Hubo un error al enviar tu cotización. Por favor, inténtalo de nuevo más tarde."
-        );
-      }
+          console.log("Summary has been sent to MongoDB!");
+
+          await transporter.sendMail({
+            from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
+            to: "miguedevp@gmail.com",
+            subject: "Cotización de vuelo",
+            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryFlight}`,
+          });
+
+          console.log("Cotización correctamente enviada por GMAIL", { summaryFlight });
+        } catch (error) {
+          console.error("Error MongoDB:", error);
+        }
+      })();
     }
   );
 
