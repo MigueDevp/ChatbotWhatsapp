@@ -1,7 +1,6 @@
 const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
 const transporter = require("../../../email/credentials/transporter");
-const flowInactividad = require("../flowInactividad");
 
 const type_of_Service = "*COTIZACIÓN VIAJE NACIONAL*";
 

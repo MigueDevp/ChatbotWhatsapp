@@ -29,11 +29,7 @@ const flowSubmenuOp3 = require("./src/flows/flowOptionsSubmenu/flowSubmenuOp3");
 const flowSubmenuOp4 = require("./src/flows/flowOptionsSubmenu/flowSubmenuOp4");
 const flowSubmenuOp5 = require("./src/flows/flowOptionsSubmenu/flowSubmenuOp5");
 const flowSubmenuOp6 = require("./src/flows/flowOptionsSubmenu/flowSubmenuOp6");
-//FLOWS CON FUNCIONES DIFERENTES
-const flowInactividad = require("./src/flows/flowInactividad");
 
-const flowRecibirDocumento = require("./src/flows/flowsOptions/flowOp7");
-const flowRecibirMedia = require("./src/flows/flowsOptions/flowOp7");
 
 //FUNCION PRINCIPAL
 const main = async () => {
@@ -46,9 +42,6 @@ const main = async () => {
   const adapterFlow = createFlow([
     flowWelcome,
     flowMenu,
-    flowInactividad,
-    flowRecibirMedia,
-    flowRecibirDocumento,
     flowOp1,
     flowOp2,
     flowOp3,
@@ -76,5 +69,5 @@ const main = async () => {
   });
 };
 
-QRPortalWeb();
+QRPortalWeb({port:4001});
 main();
