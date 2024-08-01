@@ -5,7 +5,9 @@ const transporter = require("../../../email/credentials/transporter");
 const type_of_Service = "*SOLICITUD DE CAMBIO DE RESERVA*";
 
 const flowOp4 = addKeyword(EVENTS.ACTION)
-  .addAnswer("Elegiste *Cambios en mi reserva*, con gusto te damos seguimiento.")
+  .addAnswer(
+    "Elegiste *Cambios en mi reserva*, con gusto te damos seguimiento."
+  )
 
   .addAnswer(
     "¿Cuál es el nombre completo del contratante?\n_(Nombre de la persona titular en el contrato)_",
@@ -36,7 +38,7 @@ const flowOp4 = addKeyword(EVENTS.ACTION)
     { capture: true },
     async (ctx, { state, flowDynamic }) => {
       const myState = state.getMyState();
-      await state.update({...myState, changeReason: ctx.body });
+      await state.update({ ...myState, changeReason: ctx.body });
 
       const myStateNow = state.getMyState();
       const changeReservationShow = `
@@ -47,7 +49,9 @@ const flowOp4 = addKeyword(EVENTS.ACTION)
       `;
 
       await flowDynamic([
-        { body: `Este es el resumen de tu solicitud:\n${changeReservationShow}` },
+        {
+          body: `Este es el resumen de tu solicitud:\n${changeReservationShow}`,
+        },
         {
           body:
             `Tu solicitud ha sido enviada. En unos momentos te pondremos en contacto vía WhatsApp con un ejecutivo de TravelMR para poder autorizar tu cambio en tu reserva.\nAgradecemos mucho tu paciencia.` +
@@ -67,7 +71,8 @@ const flowOp4 = addKeyword(EVENTS.ACTION)
             contractorName: myState.contractorNameChange,
             contractDestination: myState.contractDestinationChange,
             changeReason: myState.changeReason,
-            phoneNumberClientChangeReservation: myState.phoneNumberClientChangeReservation,
+            phoneNumberClientChangeReservation:
+              myState.phoneNumberClientChangeReservation,
           });
 
           console.log("Summary has been sent to MongoDB!");

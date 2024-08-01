@@ -32,8 +32,8 @@ const flowSubmenuOp6 = require("./src/flows/flowOptionsSubmenu/flowSubmenuOp6");
 //FLOWS CON FUNCIONES DIFERENTES
 const flowInactividad = require("./src/flows/flowInactividad");
 
-const flowRecibirDocumento = require("./src/flows/flowsOptions/flowOp7")
-const flowRecibirMedia= require("./src/flows/flowsOptions/flowOp7");
+const flowRecibirDocumento = require("./src/flows/flowsOptions/flowOp7");
+const flowRecibirMedia = require("./src/flows/flowsOptions/flowOp7");
 
 //FUNCION PRINCIPAL
 const main = async () => {
@@ -42,12 +42,12 @@ const main = async () => {
     dbName: "chatbot",
   });
 
-//LISTA DE FLOWS
+  //LISTA DE FLOWS
   const adapterFlow = createFlow([
     flowWelcome,
     flowMenu,
     flowInactividad,
-    flowRecibirMedia, 
+    flowRecibirMedia,
     flowRecibirDocumento,
     flowOp1,
     flowOp2,
@@ -69,44 +69,12 @@ const main = async () => {
 
   const adapterProvider = createProvider(BaileysProvider);
 
-  const globalStateConfig = {
-    encendido: true,
-  };
-
-  createBot(
-    {
-      flow: adapterFlow,
-      provider: adapterProvider,
-      database: adapterDB,
-    },
-    {
-      globalState: globalStateConfig,
-    }
-  );
-
-  /*const configureIdleTime = (flow) => {
-    flow.idle = 900000; // 15 minutos en milisegundos
-    flow.idleFallBack = flowInactividad;
-  };
-  configureIdleTime(flowMenu);
-  configureIdleTime(flowOp1);
-  configureIdleTime(flowOp2);
-  configureIdleTime(flowOp3);
-  configureIdleTime(flowOp4);
-  configureIdleTime(flowOp5);
-  configureIdleTime(flowOp6);
-  configureIdleTime(flowOp7);
-  configureIdleTime(flowOp8);
-  configureIdleTime(flowOp9);
-  configureIdleTime(flowOp10);
-  configureIdleTime(flowSubmenuOp1);
-  configureIdleTime(flowSubmenuOp2);
-  configureIdleTime(flowSubmenuOp3);
-  configureIdleTime(flowSubmenuOp4);
-  configureIdleTime(flowSubmenuOp5);
-  configureIdleTime(flowSubmenuOp6);*/
-
-  QRPortalWeb();
+  createBot({
+    flow: adapterFlow,
+    provider: adapterProvider,
+    database: adapterDB,
+  });
 };
 
+QRPortalWeb();
 main();

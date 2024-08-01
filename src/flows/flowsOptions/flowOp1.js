@@ -75,7 +75,7 @@ const flowOp1 = addKeyword(EVENTS.ACTION)
       const myState = state.getMyState();
       await state.update({ ...myState, planNational });
 
-      const updatedState = state.getMyState(); //no olvides esto chat porque esto se te olvida
+      const updatedState = state.getMyState(); 
 
       const summaryNational = `
         *COTIZACIÓN DE DESTINO NACIONAL:*
