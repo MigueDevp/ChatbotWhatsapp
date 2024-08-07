@@ -41,10 +41,19 @@ const flowOp4 = addKeyword(EVENTS.ACTION)
       await state.update({ ...myState, changeReason: ctx.body });
 
       const myStateNow = state.getMyState();
+
       const changeReservationShow = `
         *SOLICITUD DE CAMBIO DE RESERVA:*
         Nombre del contratante: ${myStateNow.contractorNameChange}
         Destino del contrato: ${myStateNow.contractDestinationChange}
+        Número de celular: ${myStateNow.phoneNumberClientChangeReservation}
+      `;
+
+      const changeReservation = `
+        *SOLICITUD DE CAMBIO DE RESERVA:*
+        Nombre del contratante: ${myStateNow.contractorNameChange}
+        Destino del contrato: ${myStateNow.contractDestinationChange}
+        Motivo de cambio: ${myStateNow.changeReason}
         Número de celular: ${myStateNow.phoneNumberClientChangeReservation}
       `;
 
@@ -81,7 +90,7 @@ const flowOp4 = addKeyword(EVENTS.ACTION)
             from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
             to: "miguedevp@gmail.com",
             subject: "Solicitud de cambio de reserva",
-            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${changeReservationShow}`,
+            text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${changeReservation}`,
           });
 
           console.log("Cotización correctamente enviada por GMAIL", {

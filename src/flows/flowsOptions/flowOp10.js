@@ -113,7 +113,7 @@ const flowOp10 = addKeyword(EVENTS.ACTION)
             from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
             to: "miguedevp@gmail.com",
             subject: "Cotización de vuelo",
-            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryFlight}`,
+            text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryFlight}`,
           });
 
           console.log("Cotización correctamente enviada por GMAIL", { summaryFlight });

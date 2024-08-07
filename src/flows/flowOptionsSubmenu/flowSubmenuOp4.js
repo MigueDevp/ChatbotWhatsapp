@@ -96,7 +96,7 @@ const flowSubmenuOp4 = addKeyword(EVENTS.ACTION)
             from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
             to: "miguedevp@gmail.com",
             subject: "Cotización de renta de auto",
-            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryAuto}`,
+            text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryAuto}`,
           });
 
           console.log("Cotización correctamente enviada por GMAIL", {

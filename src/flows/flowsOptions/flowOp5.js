@@ -68,7 +68,7 @@ const flowOp5 = addKeyword(EVENTS.ACTION)
             from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
             to: "miguedevp@gmail.com",
             subject: "Solicitud estado de adeudo",
-            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryAdeudoShow}`,
+            text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryAdeudoShow}`,
           });
 
           console.log("Cotización correctamente enviada por GMAIL", {

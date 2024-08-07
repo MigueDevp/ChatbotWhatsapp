@@ -1,0 +1,682 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '4DDCBA63E8BB47C48973AA6FA6BAD466',
+    participant: undefined
+  },
+  messageTimestamp: 1722988570,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: 'vsva',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'vsva',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_96bb3213-50b8-4bc6-9768-2d2fa329eded',
+  keyword: 'key_3883118c-792d-414d-aecb-e3270b22bd7d',
+  answer: '❤️ *¡Hola Viajero!* ❤️\n' +
+    '\n' +
+    'Soy el Chatbot de TravelMR, es un placer tenerte con nosotros. 🫶 \n' +
+    '\n' +
+    'Puedes ver nuestra cartelera de viajes ingresando en el siguiente enlace \n' +
+    ' -> https://travelmr.com.mx/view/viajes \n' +
+    '\n' +
+    '\n' +
+    'Si deseas ver el menú de opciones de este chatbot escribe la palabra: *INICIO*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'dfd5146578c1e30b956a4b8dd1c7387d'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: 'A5333304442871A303B7A3FC6515A60E',
+    participant: undefined
+  },
+  messageTimestamp: 1722988572,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: 'inicio',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'inicio',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_28895378-249b-4b88-b99b-235571c88d8a',
+  keyword: 'key_12f9a9c1-dec5-43ea-97b0-5259dcdb9174',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '5ef1fc244ee9f6c047c2b67da6cb6fa3'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '960BD3272371DFCEF374A0152499BB90',
+    participant: undefined
+  },
+  messageTimestamp: 1722988574,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: '8',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '8',
+  from: '5215655083834'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: 'E5535AFE5FA317E1384CD6C3E183DC56',
+    participant: undefined
+  },
+  messageTimestamp: 1722988577,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: 'si',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'si',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_9ddb0f2c-0b41-4a60-a772-00b67a7185c7',
+  keyword: 'ans_5a940e7d-30ee-4b15-80a1-de1244ce6641',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '87f5534debc14080d4cb3218766f88c6'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '466689E3C3D6A1771C4E715B68F4BE40',
+    participant: undefined
+  },
+  messageTimestamp: 1722988599,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: '717261',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '717261',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_0fbfd43b-15de-48ef-a44a-0c854fc1055d',
+  keyword: 'ans_9ddb0f2c-0b41-4a60-a772-00b67a7185c7',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'e04d8c6cea2d2436a600c93d823cb7b8'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '3C5090AF26468CEDACAF44B3A453C970',
+    participant: undefined
+  },
+  messageTimestamp: 1722988605,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: '7263B',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '7263B',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_0298a513-5f4c-4992-a9a5-0db8bb83efb2',
+  keyword: 'ans_0fbfd43b-15de-48ef-a44a-0c854fc1055d',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'be4e04de1b79904efe8c947e9b889fbb'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '10847F3F0B33A61ADD8B9F5BC7B2EEE7',
+    participant: undefined
+  },
+  messageTimestamp: 1722988615,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: 'RARMUQYWT',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'RARMUQYWT',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_7fc8f77d-11cf-4c88-b7b0-5100a7aded76',
+  keyword: 'ans_0298a513-5f4c-4992-a9a5-0db8bb83efb2',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'ecf620624a4d3e5bfefad1f54754c566'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '545BB9A7C0BE6821AEA0B1C6D18A6470',
+    participant: undefined
+  },
+  messageTimestamp: 1722988624,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: 'Tadeo',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Tadeo',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_97e1ec4a-639e-4928-961d-a5ad5b1d04fa',
+  keyword: 'ans_7fc8f77d-11cf-4c88-b7b0-5100a7aded76',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '5e5357f8d94aed2ed4d0d8e03c905e2f'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: 'C60FE17C714D6CE9E76AD67041FE9BFE',
+    participant: undefined
+  },
+  messageTimestamp: 1722988631,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: 'u',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'u',
+  from: '5215655083834'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '837BCA6715FCDB2FA6AF8F71DCA0B8F8',
+    participant: undefined
+  },
+  messageTimestamp: 1722991836,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: 'hsgs',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'hsgs',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_96bb3213-50b8-4bc6-9768-2d2fa329eded',
+  keyword: 'key_3883118c-792d-414d-aecb-e3270b22bd7d',
+  answer: '❤️ *¡Hola Viajero!* ❤️\n' +
+    '\n' +
+    'Soy el Chatbot de TravelMR, es un placer tenerte con nosotros. 🫶 \n' +
+    '\n' +
+    'Puedes ver nuestra cartelera de viajes ingresando en el siguiente enlace \n' +
+    ' -> https://travelmr.com.mx/view/viajes \n' +
+    '\n' +
+    '\n' +
+    'Si deseas ver el menú de opciones de este chatbot escribe la palabra: *INICIO*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: false,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: false
+  },
+  refSerialize: 'dfd5146578c1e30b956a4b8dd1c7387d'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '27A3EDDD5996E0CAB97260AB5098A032',
+    participant: undefined
+  },
+  messageTimestamp: 1722991839,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: 'inicio',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'inicio',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_28895378-249b-4b88-b99b-235571c88d8a',
+  keyword: 'key_12f9a9c1-dec5-43ea-97b0-5259dcdb9174',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '5ef1fc244ee9f6c047c2b67da6cb6fa3'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: 'CCF4E0F946E31A97BF23E07EBA3E863D',
+    participant: undefined
+  },
+  messageTimestamp: 1722992022,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: '3',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '3',
+  from: '5215655083834'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '7324CA1C1E982CCDF75E3607DBD6F6AD',
+    participant: undefined
+  },
+  messageTimestamp: 1722992027,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: '8',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '8',
+  from: '5215655083834'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '3DBD6500C9C1FE3625B074E96352B60F',
+    participant: undefined
+  },
+  messageTimestamp: 1722992033,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: '7',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '7',
+  from: '5215655083834'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: 'A7968954DE391079D9F10076B7E26810',
+    participant: undefined
+  },
+  messageTimestamp: 1722992037,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: 'inicio',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'inicio',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_28895378-249b-4b88-b99b-235571c88d8a',
+  keyword: 'key_12f9a9c1-dec5-43ea-97b0-5259dcdb9174',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '5ef1fc244ee9f6c047c2b67da6cb6fa3'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '05E09028B7DBD43BE177CE65D2D4BC37',
+    participant: undefined
+  },
+  messageTimestamp: 1722992040,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: '8',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '8',
+  from: '5215655083834'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: '548FEF9CE8034093E8A1D2897E2E66B2',
+    participant: undefined
+  },
+  messageTimestamp: 1722992043,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: 'no',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'no',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_9ddb0f2c-0b41-4a60-a772-00b67a7185c7',
+  keyword: 'ans_5a940e7d-30ee-4b15-80a1-de1244ce6641',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '87f5534debc14080d4cb3218766f88c6'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5215655083834@s.whatsapp.net',
+    fromMe: false,
+    id: 'E59234B1C013D5C3FB41D130E5CDDEEA',
+    participant: undefined
+  },
+  messageTimestamp: 1722992047,
+  pushName: 'migue',
+  broadcast: false,
+  message: Message {
+    conversation: 'inicio',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'inicio',
+  from: '5215655083834'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_0fbfd43b-15de-48ef-a44a-0c854fc1055d',
+  keyword: 'ans_9ddb0f2c-0b41-4a60-a772-00b67a7185c7',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'e04d8c6cea2d2436a600c93d823cb7b8'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_28895378-249b-4b88-b99b-235571c88d8a',
+  keyword: 'key_12f9a9c1-dec5-43ea-97b0-5259dcdb9174',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '5ef1fc244ee9f6c047c2b67da6cb6fa3'
+}

@@ -21,7 +21,7 @@ const flowOp3 = addKeyword(EVENTS.ACTION)
       "5. Traslados 🚖\n" +
       "6. Tour 🏞️\n" +
       "7. Salir" +
-      "\n" +
+      "\n\n" +
       "*Por favor ingresa una opción acorde a su número* \n" +
       "\n" +
       "Por ejemplo: *1*",

@@ -2,7 +2,6 @@ const { addKeyword, EVENTS } = require("@bot-whatsapp/bot");
 const { connectDB } = require("../../../database/db_connection");
 const transporter = require("../../../email/credentials/transporter");
 
-
 const type_of_Service = "*VISA AMERICANA*";
 
 const flowOp8 = addKeyword(EVENTS.ACTION)
@@ -11,9 +10,11 @@ const flowOp8 = addKeyword(EVENTS.ACTION)
     `
 *REQUISITOS:*
 
-- Ife(INE).
-- Pasaporte.
-- Acta de nacimiento.
+- Número de Pasaporte.
+- Número de INE.
+- CURP.
+- Nombre completo.
+- Fecha de nacimiento.
 
 Nuestros servicios consisten en la asesoría y gestoría de tu trámite, entrevista y llenado de formatos DS-160. Si es trámite por primera vez, te agendamos tus dos citas consulares. La primera cita será para la toma de huellas y revisado de documentos. La segunda cita es la entrevista con el consulado. Tu trámite lo puedes llevar a cabo en Guadalajara, Monterrey o la Ciudad de México.
 
@@ -38,7 +39,7 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
           type_of_serviceVA: type_of_Service,
         });
         return await flowDynamic(
-          "Perfecto, comenzaremos con la recopilación de tus documentos. Por favor, envía una foto clara de tu Ife(INE)."
+          "Perfecto, comenzaremos con la recopilación de tus datos.\n\n  Por favor, envía tu número de Pasaporte."
         );
       } else if (response === "no") {
         return await flowDynamic(
@@ -52,28 +53,36 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
     }
   )
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
-    await state.update({ ifePhotoVA: ctx.body });
+    await state.update({ passportNumberVA: ctx.body });
+    return await flowDynamic("Por favor envía tu número de INE.");
+  })
+  .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
+    await state.update({ ineNumberVA: ctx.body });
+    return await flowDynamic("Por favor envía tu clave CURP.");
+  })
+  .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
+    await state.update({ curpVA: ctx.body });
+    return await flowDynamic("Por favor envía tu nombre completo tal cual aparace en tu INE.");
+  })
+  .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
+    await state.update({ fullNameVA: ctx.body });
     return await flowDynamic(
-      "Ahora, por favor envía una foto clara de tu Pasaporte."
+      "Por favor envía tu Fecha de nacimiento."
     );
   })
   .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
-    await state.update({ passportPhotoVA: ctx.body });
-    return await flowDynamic(
-      "Por último, por favor envía una foto clara de tu Acta de nacimiento."
-    );
-  })
-  .addAction({ capture: true }, async (ctx, { flowDynamic, state }) => {
-    await state.update({ birthCertificatePhotoVA: ctx.body });
+    await state.update({ birthDateVA: ctx.body });
 
     const myState = state.getMyState();
 
     const summaryVisa = `
       *SOLICITUD DE VISA AMERICANA:*
+      Número de Pasaporte: ${myState.passportNumberVA}
+      Número de INE: ${myState.ineNumberVA}
+      CURP: ${myState.curpVA}
+      Nombre completo: ${myState.fullNameVA}
+      Fecha de nacimiento: ${myState.birthDateVA}
       Número de celular: ${myState.phoneNumberClientVA}
-      Foto de Ife(INE): ${myState.ifePhotoVA}
-      Foto de Pasaporte: ${myState.passportPhotoVA}
-      Foto de Acta de nacimiento: ${myState.birthCertificatePhotoVA}
     `;
 
     try {
@@ -84,9 +93,11 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
       const insertResult = await collection.insertOne({
         type_of_service: myState.type_of_serviceVA,
         phoneNumberClient: myState.phoneNumberClientVA,
-        ifePhoto: myState.ifePhotoVA,
-        passportPhoto: myState.passportPhotoVA,
-        birthCertificatePhoto: myState.birthCertificatePhotoVA,
+        passportNumber: myState.passportNumberVA,
+        ineNumber: myState.ineNumberVA,
+        curp: myState.curpVA,
+        fullName: myState.fullNameVA,
+        birthDate: myState.birthDateVA,
       });
 
       console.log(insertResult);
@@ -96,7 +107,7 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
         from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
         to: "miguedevp@gmail.com",
         subject: "Visa Americana",
-        text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryVisa}`,
+        text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryVisa}`,
       });
 
       console.log("Cotización correctamente enviada por GMAIL", {

@@ -44,6 +44,15 @@ const flowOp6 = addKeyword(EVENTS.ACTION)
         Número de celular: ${myStateNow.phoneNumberClientRemb}
       `;
 
+      const summaryRembolsos = `
+        *SOLICITUD DE REMBOLSO:*
+        Nombre completo del contratante: ${myStateNow.fullNameRemb}
+        Destino del contrato: ${myStateNow.destinationRemb}
+        Motivo de rembolso: ${myStateNow.reasonRemb}
+        Número de celular: ${myStateNow.phoneNumberClientRemb}
+      `;
+
+
       await flowDynamic([
         {
           body: `Este es el resumen de tu solicitud de rembolso:\n${summaryRembolsosShow}`,
@@ -76,7 +85,7 @@ const flowOp6 = addKeyword(EVENTS.ACTION)
             from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
             to: "miguedevp@gmail.com",
             subject: "Solicitud de rembolso",
-            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryRembolsosShow}`,
+            text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryRembolsos}`,
           });
 
           console.log("Cotización correctamente enviada por GMAIL", {

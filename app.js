@@ -6,7 +6,6 @@
 //DEPENDENCIAS DEL BOT
 const { createBot, createProvider, createFlow } = require("@bot-whatsapp/bot");
 const QRPortalWeb = require("@bot-whatsapp/portal");
-const nodemailer = require("./email/credentials/transporter")
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 const MongoAdapter = require("@bot-whatsapp/database/mongo");
 //FLOWS PRINCIPALES
@@ -68,7 +67,9 @@ const main = async () => {
     provider: adapterProvider,
     database: adapterDB,
   });
+
+  QRPortalWeb();
 };
 
-QRPortalWeb({port:4001});
+
 main();

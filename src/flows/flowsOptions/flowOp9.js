@@ -90,7 +90,7 @@ Recuerda que nadie tiene la facultad de garantizarte la aprobación de la visa, 
         from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
         to: "miguedevp@gmail.com",
         subject: "Visa Canadiense",
-        text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryVisaC}`,
+        text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryVisaC}`,
       });
 
       console.log("Cotización correctamente enviada por GMAIL", {

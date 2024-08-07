@@ -44,6 +44,15 @@ const flowSubmenuOp3 = addKeyword(EVENTS.ACTION)
 
       const myStateNow = state.getMyState();
 
+      const summarySprinterShow = `
+        *COTIZACIÓN DE SPRINTER:*
+        Nombre: ${myStateNow.nameSpr}
+        Destino de la Sprinter: ${myStateNow.destinationSpr}
+        Fecha del viaje: ${myStateNow.travelDateSpr}
+        Número de celular: ${myStateNow.numberCellphoneClientSpr}
+      `;
+
+
       const summarySprinter = `
         *COTIZACIÓN DE SPRINTER:*
         Nombre: ${myStateNow.nameSpr}
@@ -53,9 +62,11 @@ const flowSubmenuOp3 = addKeyword(EVENTS.ACTION)
         Número de celular: ${myStateNow.numberCellphoneClientSpr}
       `;
 
+
+
       await flowDynamic([
         {
-          body: `Este es el resumen de tu cotización de Sprinter:\n${summarySprinter}`,
+          body: `Este es el resumen de tu cotización de Sprinter:\n${summarySprinterShow}`,
         },
         {
           body:

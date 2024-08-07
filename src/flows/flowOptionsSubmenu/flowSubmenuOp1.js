@@ -45,6 +45,14 @@ const flowSubmenuOp1 = addKeyword(EVENTS.ACTION)
 
       const myStateNow = state.getMyState();
 
+      const summaryBusShow = `
+        *COTIZACIÓN DE AUTOBÚS:*
+        Nombre: ${myStateNow.nameBus}
+        Destino: ${myStateNow.destinationBus}
+        Fecha del viaje: ${myStateNow.travelDateBus}
+        Número de celular: ${myStateNow.numberCellphoneClientBus}
+      `;
+
       const summaryBus = `
         *COTIZACIÓN DE AUTOBÚS:*
         Nombre: ${myStateNow.nameBus}
@@ -56,7 +64,7 @@ const flowSubmenuOp1 = addKeyword(EVENTS.ACTION)
 
       await flowDynamic([
         {
-          body: `Este es el resumen de tu cotización de autobús:\n${summaryBus}`,
+          body: `Este es el resumen de tu cotización de autobús:\n${summaryBusShow}`,
         },
         {
           body:
@@ -86,7 +94,7 @@ const flowSubmenuOp1 = addKeyword(EVENTS.ACTION)
             from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
             to: "miguedevp@gmail.com",
             subject: "Cotización de Autobús",
-            text: `¡Hola Ejecutiva de TRAVELMR!, Tienes una nueva cotización:\n${summaryBus}`,
+            text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryBus}`,
           });
 
           console.log("Cotización correctamente enviada por GMAIL", {
