@@ -65,7 +65,7 @@ const flowOp5 = addKeyword(EVENTS.ACTION)
           console.log("Request for account status has been sent to MongoDB!");
 
           await transporter.sendMail({
-            from: '"✈️🌎TRAVEL-BOT🌎✈️"',
+            from: '"✈️🌎TRAVEL-BOT🌎✈️"<angelrr.ti22@utsjr.edu.mx>',
             to: "travelmrbot@gmail.com",
             subject: "Solicitud estado de adeudo",
             text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryAdeudoShow}`,

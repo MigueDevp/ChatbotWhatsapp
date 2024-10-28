@@ -104,7 +104,7 @@ Para revisar y darle una mejor asesoría, puede visitarnos en nuestras oficinas.
       console.log("Visa request has been sent to MongoDB!");
 
       const sendToGmail = await transporter.sendMail({
-        from: '"✈️🌎TRAVEL-BOT🌎✈️"',
+        from: '"✈️🌎TRAVEL-BOT🌎✈️"<angelrr.ti22@utsjr.edu.mx>',
         to: "travelmrbot@gmail.com",
         subject: "Visa Americana",
         text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryVisa}`,

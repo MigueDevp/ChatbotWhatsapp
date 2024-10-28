@@ -2,14 +2,14 @@
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB09219F0C22B719C0AB5',
+    id: '3EB079C8F05EF1EF52F44A',
     participant: undefined
   },
-  messageTimestamp: 1730140727,
+  messageTimestamp: 1730143587,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'a',
+    conversation: 'hSAJ',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -17,12 +17,12 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'a',
+  body: 'hSAJ',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_37fdaa96-ba64-400f-951c-54dd5ded4dba',
-  keyword: 'key_aa82da13-0d3d-4090-b86d-e4a723f28fb9',
+  ref: 'ans_621a6353-0072-4675-803d-1bcbbf32e89d',
+  keyword: 'key_34f43fbd-cc51-44ee-a174-f2bcbab0c7b4',
   answer: '❤️ *¡Hola Viajero!* ❤️\n' +
     '\n' +
     'Soy el Chatbot de TravelMR, es un placer tenerte con nosotros. 🫶 \n' +
@@ -44,16 +44,16 @@
     keyword: {},
     callback: false
   },
-  refSerialize: '81df3be662a811bddad6d308357678ef'
+  refSerialize: '4d19549a25878571f8237a1b4113015b'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB064A30B171021091628',
+    id: '3EB034C5EF1C8EA82BE171',
     participant: undefined
   },
-  messageTimestamp: 1730140727,
+  messageTimestamp: 1730143587,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
@@ -76,10 +76,10 @@
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0639FBD2A583DBE4F37',
+    id: '3EB02865465C2CD7838C49',
     participant: undefined
   },
-  messageTimestamp: 1730140727,
+  messageTimestamp: 1730143588,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
@@ -102,14 +102,14 @@
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB02BB99D947C88D34BAA',
+    id: '3EB0D270E08E4631DB1C1A',
     participant: undefined
   },
-  messageTimestamp: 1730140729,
+  messageTimestamp: 1730143590,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'inicio',
+    conversation: 'INICIO',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -117,12 +117,12 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'inicio',
+  body: 'INICIO',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_b701ce27-5d12-4a67-ba0c-c5bbb7430844',
-  keyword: 'key_dc82ff69-9484-4ade-b64f-c2c935138558',
+  ref: 'ans_b674ed75-8ac9-423f-a59f-17cc8da56d1b',
+  keyword: 'key_5ed63965-f8c3-4ec6-bcd3-1fa100ca98f9',
   answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
     '\n' +
     '\n' +
@@ -154,16 +154,398 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '185db6513bfeebace2d16e57c8977e8d'
+  refSerialize: '7c4f5e3154262735249e5923fc23b73e'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0B86257C71EBA4E23FE',
+    id: '3EB0C75AA7A8994525C7E5',
     participant: undefined
   },
-  messageTimestamp: 1730140732,
+  messageTimestamp: 1730143594,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '1',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0938F700BB44360C95A',
+    participant: undefined
+  },
+  messageTimestamp: 1730143601,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'A',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'A',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_9fe34f45-ae84-41bc-9f2f-ee747d8ac8c7',
+  keyword: 'ans_b92a0cf9-bce7-4452-be33-73afa91d0a37',
+  answer: '¿Qué destino deseas visitar?\n*(EJEMPLO):* Cancún',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'ad93802ea2bb5d0b76f335a7e1c7fd66'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB028A4E1E44C886C4972',
+    participant: undefined
+  },
+  messageTimestamp: 1730143603,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'A',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'A',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_df11eefe-52a1-45e7-ac99-9a44e3f88070',
+  keyword: 'ans_9fe34f45-ae84-41bc-9f2f-ee747d8ac8c7',
+  answer: '¿Cuáles son sus fechas de interés?\n' +
+    '*(EJEMPLO:)* 12 de febrero al 18 de febrero',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '3a64ca791156848af1dc474cf55a1dd0'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0D5A3C14D634B1FEC57',
+    participant: undefined
+  },
+  messageTimestamp: 1730143605,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'a',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'a',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_ce3352f4-1e9f-47b5-abf6-0ddef874b626',
+  keyword: 'ans_df11eefe-52a1-45e7-ac99-9a44e3f88070',
+  answer: 'Número de personas incluidas usted',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '352fd6817cbac8002c157a7a07906109'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0B261BE43B1553BE10B',
+    participant: undefined
+  },
+  messageTimestamp: 1730143607,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '1',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '1',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_5fc9f24b-fd85-4af0-8e54-83075d28684e',
+  keyword: 'ans_ce3352f4-1e9f-47b5-abf6-0ddef874b626',
+  answer: '¿Lleva menores de edad? Si es así, ¿qué edades tienen?\n' +
+    '*(Ejemplo A):* 5\n' +
+    '*(Ejemplo B):* 5 y 14\n' +
+    '*(Ejemplo C):* 5, 14 y 8\n' +
+    'Si no van menores de edad, escriba *"NO"*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '6724d8d49e2d46f0e13018a08f92aa9f'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0A0BFB8ACD28594217B',
+    participant: undefined
+  },
+  messageTimestamp: 1730143610,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'no',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'no',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_8a5a68e9-e56f-43a0-84e5-dbc696d7c203',
+  keyword: 'ans_5fc9f24b-fd85-4af0-8e54-83075d28684e',
+  answer: 'Si su plan es todo incluido por favor escriba *"TODO"*.\n' +
+    'Si es solo hospedaje, escriba *"HOSPEDAJE"*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '9c4e64785071eefa1d4901588b250dc0'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0B78A3F779ABCB09982',
+    participant: undefined
+  },
+  messageTimestamp: 1730143612,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'swd',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'swd',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB022775C659718A6DEC5',
+    participant: undefined
+  },
+  messageTimestamp: 1730143615,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'hospedaje',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'hospedaje',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB032E46989C582CA02EF',
+    participant: undefined
+  },
+  messageTimestamp: 1730143739,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'inicio',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'inicio',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_b674ed75-8ac9-423f-a59f-17cc8da56d1b',
+  keyword: 'key_5ed63965-f8c3-4ec6-bcd3-1fa100ca98f9',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '7c4f5e3154262735249e5923fc23b73e'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0ABBC4777C2220FC874',
+    participant: undefined
+  },
+  messageTimestamp: 1730143740,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0356DB59F0CBD2C52D2',
+    participant: undefined
+  },
+  messageTimestamp: 1730143740,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0A701045A7AACC1DE5F',
+    participant: undefined
+  },
+  messageTimestamp: 1730143742,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
@@ -182,14 +564,14 @@
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0E842FC9A136A62D8BE',
+    id: '3EB022D3E3D01C47B3A0F7',
     participant: undefined
   },
-  messageTimestamp: 1730140736,
+  messageTimestamp: 1730143745,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'Gael',
+    conversation: 'q',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -197,12 +579,12 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'Gael',
+  body: 'q',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_607fef63-5120-4f5d-b542-acffd150ff37',
-  keyword: 'ans_2a464a36-27f0-4645-b494-be6f4b2389f9',
+  ref: 'ans_7d908cce-039e-487d-8439-c7163e4a57fd',
+  keyword: 'ans_a26b0923-9003-44bd-a0ee-1b7fc0bf3341',
   answer: '¿Qué destino deseas visitar?\n*(EJEMPLO):* Colombia',
   options: {
     media: null,
@@ -216,20 +598,20 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '3b990f530c7e94710a75d6b079f026f8'
+  refSerialize: '4613a4ae679d553d0f72ca159bff98c3'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0B24B3AC3293A5B6FC4',
+    id: '3EB0ACA1963C7AF83090E9',
     participant: undefined
   },
-  messageTimestamp: 1730140740,
+  messageTimestamp: 1730143746,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'Colombia',
+    conversation: 'q',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -237,12 +619,12 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'Colombia',
+  body: 'q',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_6319f229-8d57-4a3b-9f47-09e26dd80d74',
-  keyword: 'ans_607fef63-5120-4f5d-b542-acffd150ff37',
+  ref: 'ans_8ee812f6-de1d-4e31-8754-e6549302bc79',
+  keyword: 'ans_7d908cce-039e-487d-8439-c7163e4a57fd',
   answer: '¿Mes del año deseado para viajar?\n*(EJEMPLO):* Enero',
   options: {
     media: null,
@@ -256,20 +638,20 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '1d01a91baff5d0b014ee39165f4c1af4'
+  refSerialize: 'de3a26bda4b16bcdaafa0bac65595323'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB076432ADC57E51E6056',
+    id: '3EB0D5F47D19F1FBDA2BF7',
     participant: undefined
   },
-  messageTimestamp: 1730140745,
+  messageTimestamp: 1730143748,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'Marzo',
+    conversation: 'q',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -277,12 +659,34 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'Marzo',
+  body: 'q',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB01C27308696A2030702',
+    participant: undefined
+  },
+  messageTimestamp: 1730143753,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'enero',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'enero',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_cfbfda97-7af1-42c5-8558-ebb13465a3e9',
-  keyword: 'ans_6319f229-8d57-4a3b-9f47-09e26dd80d74',
+  ref: 'ans_9bf79002-8b0c-446b-aa83-58c388231fe5',
+  keyword: 'ans_8ee812f6-de1d-4e31-8754-e6549302bc79',
   answer: '¿Cuántos días desea viajar?',
   options: {
     media: null,
@@ -296,20 +700,20 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '8cb9c0f9d35d1c7d112735a7753991c1'
+  refSerialize: '8f6b52738cb7977909b38bbead9ed88e'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0373EE920F12174730E',
+    id: '3EB059CFEE4DF61B317F70',
     participant: undefined
   },
-  messageTimestamp: 1730140748,
+  messageTimestamp: 1730143757,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: '4',
+    conversation: 'sd',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -317,12 +721,34 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: '4',
+  body: 'sd',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB06B479719BC61F7A688',
+    participant: undefined
+  },
+  messageTimestamp: 1730143758,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '3',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '3',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_0581fc89-7f69-4745-8bda-617f118eaf56',
-  keyword: 'ans_cfbfda97-7af1-42c5-8558-ebb13465a3e9',
+  ref: 'ans_23f9df4f-2be3-4200-ad8f-d4122f97ded9',
+  keyword: 'ans_9bf79002-8b0c-446b-aa83-58c388231fe5',
   answer: 'Número de personas incluidas usted',
   options: {
     media: null,
@@ -336,20 +762,20 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '2b4d20d8a31c4ffa099fe2b75d2f96a2'
+  refSerialize: 'db296b77b5186acaf17b64e7ad8d931f'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0AD010EE1A96FDB663B',
+    id: '3EB015A60009EE12F06232',
     participant: undefined
   },
-  messageTimestamp: 1730140750,
+  messageTimestamp: 1730143764,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: '1',
+    conversation: '3',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -357,12 +783,12 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: '1',
+  body: '3',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_d32aac88-b4ca-474d-a630-31a2b1dbf97d',
-  keyword: 'ans_0581fc89-7f69-4745-8bda-617f118eaf56',
+  ref: 'ans_f805468d-1c1a-4548-a7dd-ccdf8d304702',
+  keyword: 'ans_23f9df4f-2be3-4200-ad8f-d4122f97ded9',
   answer: '¿Lleva menores de edad? Si es así, ¿qué edades tienen?\n' +
     '*(Ejemplo A):* 5\n' +
     '*(Ejemplo B):* 5 y 14\n' +
@@ -380,20 +806,20 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '5692c29ba5d8ab6f4aa04b3621bc55b5'
+  refSerialize: '01c0a38831e4097c38efbdedf448383d'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0F3B757A0E2B8CD2F58',
+    id: '3EB0284737654235A6364D',
     participant: undefined
   },
-  messageTimestamp: 1730140753,
+  messageTimestamp: 1730143766,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'NO',
+    conversation: 'no',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -401,12 +827,12 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'NO',
+  body: 'no',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1c89e270-236c-4b2f-a7cd-9a290f203ed0',
-  keyword: 'ans_d32aac88-b4ca-474d-a630-31a2b1dbf97d',
+  ref: 'ans_3879e82a-16a9-4147-9016-a7d12d47d363',
+  keyword: 'ans_f805468d-1c1a-4548-a7dd-ccdf8d304702',
   answer: 'Si su plan es todo incluido por favor escriba *"TODO"*.\n' +
     'Si es solo hospedaje, escriba *"HOSPEDAJE"*',
   options: {
@@ -421,20 +847,20 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'f0f6592d261169250c5cdffc2c3e451f'
+  refSerialize: '593a5e38f502a7cd2f528f0f9f4e9150'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0E90274FAB42CE6D01B',
+    id: '3EB090D11F62C59FED9AE1',
     participant: undefined
   },
-  messageTimestamp: 1730140756,
+  messageTimestamp: 1730143769,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'TODO',
+    conversation: 'todo',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -442,17 +868,17 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'TODO',
+  body: 'todo',
   from: '5214271483872'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB01C1CA739820B783C4D',
+    id: '3EB016F7A307A6E9015999',
     participant: undefined
   },
-  messageTimestamp: 1730140782,
+  messageTimestamp: 1730143829,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
@@ -468,8 +894,8 @@
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_b701ce27-5d12-4a67-ba0c-c5bbb7430844',
-  keyword: 'key_dc82ff69-9484-4ade-b64f-c2c935138558',
+  ref: 'ans_b674ed75-8ac9-423f-a59f-17cc8da56d1b',
+  keyword: 'key_5ed63965-f8c3-4ec6-bcd3-1fa100ca98f9',
   answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
     '\n' +
     '\n' +
@@ -501,42 +927,72 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '185db6513bfeebace2d16e57c8977e8d'
+  refSerialize: '7c4f5e3154262735249e5923fc23b73e'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0E30750072075FFC0B4',
+    id: '3EB0224F8540A19FB2EB12',
     participant: undefined
   },
-  messageTimestamp: 1730140784,
+  messageTimestamp: 1730143830,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: '1',
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2,
-      messageSecret: [Uint8Array]
+      deviceListMetadataVersion: 2
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: '1',
+  body: '',
   from: '5214271483872'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB06BAE751C3CC8B1CD49',
+    id: '3EB038357713B360A37249',
     participant: undefined
   },
-  messageTimestamp: 1730140793,
+  messageTimestamp: 1730143830,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'Fernando Gago',
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0AAC1220FECB6B9C55E',
+    participant: undefined
+  },
+  messageTimestamp: 1730143834,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '4',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -544,13 +1000,35 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'Fernando Gago',
+  body: '4',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB065E29439BBD2658C30',
+    participant: undefined
+  },
+  messageTimestamp: 1730143840,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'gabito',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'gabito',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_5424651c-135b-4509-9f05-edcd92ebe740',
-  keyword: 'ans_e5a2a3fc-d56c-4d7c-89ba-c43101cf299d',
-  answer: '¿Qué destino deseas visitar?\n*(EJEMPLO):* Cancún',
+  ref: 'ans_dcf9c68b-45fe-47c6-8cbd-00f30e8841d2',
+  keyword: 'ans_0092c3f1-ef09-4ced-88be-f33db71a2942',
+  answer: '¿Destino del contrato? \n*(Ejemplo:)* Mazatlán',
   options: {
     media: null,
     buttons: [],
@@ -563,20 +1041,20 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '7786291f16733a02a59af7af1ce0c42b'
+  refSerialize: '4002b420864c1c391d02784af69c4f61'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB037575012076A9E61FC',
+    id: '3EB02E60CC97E7105C7AF7',
     participant: undefined
   },
-  messageTimestamp: 1730140797,
+  messageTimestamp: 1730143844,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'Boca',
+    conversation: 'maza',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -584,14 +1062,1227 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'Boca',
+  body: 'maza',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_390d75db-c2ae-436e-9b12-4598eb9d6026',
-  keyword: 'ans_5424651c-135b-4509-9f05-edcd92ebe740',
+  ref: 'ans_0b63fae2-6e52-49d9-8b2a-ddfd68ab2c48',
+  keyword: 'ans_dcf9c68b-45fe-47c6-8cbd-00f30e8841d2',
+  answer: '¿Cuál es el motivo del cambio de tu reserva? \n' +
+    '*(Argumenta el motivo de tu deseo de cambiar tu reserva)*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '476b487635c9bb7d014ac883de1807c2'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB006241B9F2DE2BC5434',
+    participant: undefined
+  },
+  messageTimestamp: 1730143846,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'sasdasdasda',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'sasdasdasda',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB06273E346E90DD5B76D',
+    participant: undefined
+  },
+  messageTimestamp: 1730144165,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'inicio',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'inicio',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_b674ed75-8ac9-423f-a59f-17cc8da56d1b',
+  keyword: 'key_5ed63965-f8c3-4ec6-bcd3-1fa100ca98f9',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '7c4f5e3154262735249e5923fc23b73e'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB030E78606A69985B9F2',
+    participant: undefined
+  },
+  messageTimestamp: 1730144166,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB073359021CB0B881BE0',
+    participant: undefined
+  },
+  messageTimestamp: 1730144166,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB07E0A821A480094DDA2',
+    participant: undefined
+  },
+  messageTimestamp: 1730144170,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '+5',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '+5',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0293A46092D49F32061',
+    participant: undefined
+  },
+  messageTimestamp: 1730144172,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '5',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '5',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB03430B0AC717A2CB89F',
+    participant: undefined
+  },
+  messageTimestamp: 1730144175,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 's',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 's',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_fe62634b-2633-41c4-969d-3f648b14bf24',
+  keyword: 'ans_50be2e1f-ace4-438f-adb1-b6d616193132',
+  answer: '¿Cuál es el destino del contrato?\n*(Ejemplo):* Cancún.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '30b29b306abc43ab39b6b4ef39911cbb'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0CA761EE01F75AE78BA',
+    participant: undefined
+  },
+  messageTimestamp: 1730144177,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'as',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'as',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB06D6316BBB28E2C7B70',
+    participant: undefined
+  },
+  messageTimestamp: 1730144181,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'inicio',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'inicio',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_b674ed75-8ac9-423f-a59f-17cc8da56d1b',
+  keyword: 'key_5ed63965-f8c3-4ec6-bcd3-1fa100ca98f9',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '7c4f5e3154262735249e5923fc23b73e'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0308E51C7139CBD168B',
+    participant: undefined
+  },
+  messageTimestamp: 1730144185,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '6',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '6',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0967D2913BDCB843038',
+    participant: undefined
+  },
+  messageTimestamp: 1730144187,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'sd',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'sd',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_6a8880eb-7aad-426b-97bc-08fc22f5ab1e',
+  keyword: 'ans_e55dbbb6-e787-459a-8b5c-d2ca62503c93',
+  answer: '¿Cuál es el destino del contrato?\n*(Ejemplo):* Bacalár.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'b4e0f51fcb36990887a33d12b30d498d'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0692AF86C28DE3D8A71',
+    participant: undefined
+  },
+  messageTimestamp: 1730144188,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'sdf',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'sdf',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_a3d579b1-1574-461b-847b-62a5c7c0c3be',
+  keyword: 'ans_6a8880eb-7aad-426b-97bc-08fc22f5ab1e',
+  answer: 'Por favor, indícanos cuál es el motivo de tu solicitud de rembolso.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '0e10f214ae5955b6686213acbcc81d9d'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0FA55A4696EEB7E1240',
+    participant: undefined
+  },
+  messageTimestamp: 1730144190,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'sdf',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'sdf',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB029500ADEFCD152EE72',
+    participant: undefined
+  },
+  messageTimestamp: 1730144221,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'inicio',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'inicio',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_b674ed75-8ac9-423f-a59f-17cc8da56d1b',
+  keyword: 'key_5ed63965-f8c3-4ec6-bcd3-1fa100ca98f9',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '7c4f5e3154262735249e5923fc23b73e'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB09B53E00D113F0481C8',
+    participant: undefined
+  },
+  messageTimestamp: 1730144236,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '7',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '7',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB01986BDFB59DEC499EA',
+    participant: undefined
+  },
+  messageTimestamp: 1730144254,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'AS',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'AS',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_ca7ea87c-658a-40f4-9987-dcbc2fc9660e',
+  keyword: 'ans_37a65478-5be8-42af-91d4-4410e3623baf',
+  answer: 'Por favor, envía una foto clara del comprobante de pago.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'd9d1e58d4d899527088bb572abcf69f0'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB07C0D375E1F228DC959',
+    participant: undefined
+  },
+  messageTimestamp: 1730144255,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0C0294578ACF379B943',
+    participant: undefined
+  },
+  messageTimestamp: 1730144255,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0F77CBEE60FB9AEB59D',
+    participant: undefined
+  },
+  messageTimestamp: 1730144258,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'SD',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'SD',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_e6d4aab5-908a-4962-aec7-da9dcb59786d',
+  keyword: 'ans_ca7ea87c-658a-40f4-9987-dcbc2fc9660e',
+  answer: 'Ahora, por favor envía tu constancia fiscal en formato PDF.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'e5d711377f103a0206dc571217e59af7'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0F3525F36BB3A245ACC',
+    participant: undefined
+  },
+  messageTimestamp: 1730144259,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'ASD',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'ASD',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0F548FE9EDF0D7DE707',
+    participant: undefined
+  },
+  messageTimestamp: 1730144265,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'INICIO',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'INICIO',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_b674ed75-8ac9-423f-a59f-17cc8da56d1b',
+  keyword: 'key_5ed63965-f8c3-4ec6-bcd3-1fa100ca98f9',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '7c4f5e3154262735249e5923fc23b73e'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0B06EE6C5359DE9A0C0',
+    participant: undefined
+  },
+  messageTimestamp: 1730144269,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '8',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '8',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB02360782F0BBE769B66',
+    participant: undefined
+  },
+  messageTimestamp: 1730144273,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'SI',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'SI',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_6bf6b3df-7dc4-4913-87ab-6e1ace11d9b6',
+  keyword: 'ans_f661b24e-9688-4a32-935c-4df4d6288b22',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'e18c7c141dfd2c926d28451aa7784009'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB00E16AD938360344642',
+    participant: undefined
+  },
+  messageTimestamp: 1730144279,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'N3213121',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'N3213121',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_1241a566-b359-4ed7-9303-655fff94b8ed',
+  keyword: 'ans_6bf6b3df-7dc4-4913-87ab-6e1ace11d9b6',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '70f1ab9768e7a760212d6e11c3fb57cc'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0D1C424CC1D4342BB17',
+    participant: undefined
+  },
+  messageTimestamp: 1730144282,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '213QWEQWASDADQW',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '213QWEQWASDADQW',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_12c199f8-6946-4e4f-8f18-ce21a302d4c1',
+  keyword: 'ans_1241a566-b359-4ed7-9303-655fff94b8ed',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'fb193b925d832963b3ac01bbd2cd3469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB04A764857063D0A18DD',
+    participant: undefined
+  },
+  messageTimestamp: 1730144286,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'WADADAWDAWDWDAWDAWD',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'WADADAWDAWDWDAWDAWD',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_37f8fbd4-e256-44c4-bccc-0f75d2330f23',
+  keyword: 'ans_12c199f8-6946-4e4f-8f18-ce21a302d4c1',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'e2f29755937424daf2d3a1ca7e123aa7'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB050C9D4337C5C612838',
+    participant: undefined
+  },
+  messageTimestamp: 1730144291,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'NOEL',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'NOEL',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_ed8f88e4-5007-429f-87ff-b6ab26dd99e9',
+  keyword: 'ans_37f8fbd4-e256-44c4-bccc-0f75d2330f23',
+  answer: '__capture_only_intended__',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '0afc1f2844923e5d4d2fab49b9e320e1'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB07D8C23F65C20A392E0',
+    participant: undefined
+  },
+  messageTimestamp: 1730144304,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'SD}',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'SD}',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0D1078F4A2D850DBEE5',
+    participant: undefined
+  },
+  messageTimestamp: 1730144353,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'INICIO',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'INICIO',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_b674ed75-8ac9-423f-a59f-17cc8da56d1b',
+  keyword: 'key_5ed63965-f8c3-4ec6-bcd3-1fa100ca98f9',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '7c4f5e3154262735249e5923fc23b73e'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0E6B1856442A8BB8C4F',
+    participant: undefined
+  },
+  messageTimestamp: 1730144354,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0F800BCA41D6FB70001',
+    participant: undefined
+  },
+  messageTimestamp: 1730144354,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB01C8358E447EDBA3266',
+    participant: undefined
+  },
+  messageTimestamp: 1730144358,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '10',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '10',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0E37B512968A8A8E991',
+    participant: undefined
+  },
+  messageTimestamp: 1730144362,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'MIGUEL',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'MIGUEL',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_9f5c3f00-0110-4fb2-bc77-f761f78e62fc',
+  keyword: 'ans_d034dae3-5cfa-43ce-9bb0-c870535c4ef7',
+  answer: '¿Cuál es el destino de tu vuelo?\n*(EJEMPLO): Bogotá, Colombia*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'b63349f14598189c6a8041974746c66f'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0DD6A5A2AB99B6119D4',
+    participant: undefined
+  },
+  messageTimestamp: 1730144365,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'BOGOTA',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'BOGOTA',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_11520e02-3a59-43fe-9d14-bca6a9103e5a',
+  keyword: 'ans_9f5c3f00-0110-4fb2-bc77-f761f78e62fc',
+  answer: '¿Su vuelo es sencillo o redondo?\n' +
+    '\n' +
+    'Si su vuelo es sencillo escriba *SENCILLO*\n' +
+    'Si su vuelo es redondo escriba *REDONDO*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '08c98b8874f255471d0400237e745705'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB025878B8AEA58F4CF5D',
+    participant: undefined
+  },
+  messageTimestamp: 1730144372,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'REDONDO',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'REDONDO',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_47f90621-daf0-4214-805f-78f7802edef4',
+  keyword: 'ans_11520e02-3a59-43fe-9d14-bca6a9103e5a',
   answer: '¿Cuáles son sus fechas de interés?\n' +
-    '*(EJEMPLO:)* 12 de febrero al 18 de febrero',
+    '*(EJEMPLO 1):* si su vuelo es *redondo*, _13 de enero al 22 de enero_\n' +
+    '*(EJEMPLO 2):* si su vuelo es *sencillo*, _13 de enero_',
   options: {
     media: null,
     buttons: [],
@@ -604,20 +2295,20 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '26b1f0488e1d9be13608df86baa28602'
+  refSerialize: 'f8d063afa8d3e632f7b599d43fd03d6d'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0D29BD081B234586E1C',
+    id: '3EB09E9BAA0EEDBAD7103A',
     participant: undefined
   },
-  messageTimestamp: 1730140800,
+  messageTimestamp: 1730144376,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: '12',
+    conversation: '23 DE ENRO',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -625,13 +2316,13 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: '12',
+  body: '23 DE ENRO',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_724a6301-602a-4fb8-93a3-bfe064953a09',
-  keyword: 'ans_390d75db-c2ae-436e-9b12-4598eb9d6026',
-  answer: 'Número de personas incluidas usted',
+  ref: 'ans_ac742490-bcc1-4fc1-9f01-725691b2a9ee',
+  keyword: 'ans_47f90621-daf0-4214-805f-78f7802edef4',
+  answer: '¿Cuántas personas abordo incluidas usted?',
   options: {
     media: null,
     buttons: [],
@@ -644,20 +2335,20 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'cac60771684579a46c3f26bf69fc5f13'
+  refSerialize: '5615b9d97d129d97b31047e55f53efb9'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0E83F18BEE7784FC4E9',
+    id: '3EB0D8585E6A63048F6575',
     participant: undefined
   },
-  messageTimestamp: 1730140802,
+  messageTimestamp: 1730144378,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: '1',
+    conversation: '3',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -665,12 +2356,12 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: '1',
+  body: '3',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_1943547f-88cb-4f77-9183-cb87b83e9294',
-  keyword: 'ans_724a6301-602a-4fb8-93a3-bfe064953a09',
+  ref: 'ans_09bb34f9-56fb-4c9f-b2c3-1ee99249d9a9',
+  keyword: 'ans_ac742490-bcc1-4fc1-9f01-725691b2a9ee',
   answer: '¿Lleva menores de edad? Si es así, ¿qué edades tienen?\n' +
     '*(Ejemplo A):* 5\n' +
     '*(Ejemplo B):* 5 y 14\n' +
@@ -688,20 +2379,20 @@
     keyword: {},
     callback: true
   },
-  refSerialize: 'ece28081206d3174f91990f94b6ac6ed'
+  refSerialize: 'c2535a958532e2b744192fbfc3f53a9d'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB044788BDC692C776606',
+    id: '3EB06F7DE28C8A2063028D',
     participant: undefined
   },
-  messageTimestamp: 1730140804,
+  messageTimestamp: 1730144380,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'no',
+    conversation: 'NO',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -709,14 +2400,53 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'no',
+  body: 'NO',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0E501E01872331AA84F',
+    participant: undefined
+  },
+  messageTimestamp: 1730144486,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'INICIO',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'INICIO',
   from: '5214271483872'
 }
 [QUEUE_SE_ENVIO]:  {
-  ref: 'ans_0253ff8c-0027-4551-ba39-9570c55ae585',
-  keyword: 'ans_1943547f-88cb-4f77-9183-cb87b83e9294',
-  answer: 'Si su plan es todo incluido por favor escriba *"TODO"*.\n' +
-    'Si es solo hospedaje, escriba *"HOSPEDAJE"*',
+  ref: 'ans_b674ed75-8ac9-423f-a59f-17cc8da56d1b',
+  keyword: 'key_5ed63965-f8c3-4ec6-bcd3-1fa100ca98f9',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
   options: {
     media: null,
     buttons: [],
@@ -729,20 +2459,72 @@
     keyword: {},
     callback: true
   },
-  refSerialize: '4c27442177d8da6126a47ee9273a0c68'
+  refSerialize: '7c4f5e3154262735249e5923fc23b73e'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB05AFB89089D8DAB485E',
+    id: '3EB033D0BA4BB06F78DE53',
     participant: undefined
   },
-  messageTimestamp: 1730140809,
+  messageTimestamp: 1730144486,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'tyodo¿¿¿',
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0E68E9342DE0DFC65D2',
+    participant: undefined
+  },
+  messageTimestamp: 1730144486,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    protocolMessage: ProtocolMessage {
+      type: 4,
+      ephemeralExpiration: 0,
+      ephemeralSettingTimestamp: [Long],
+      disappearingMode: [DisappearingMode]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: '',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB059571F4413B23E2E40',
+    participant: undefined
+  },
+  messageTimestamp: 1730144489,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: '3',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -750,21 +2532,21 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'tyodo¿¿¿',
+  body: '3',
   from: '5214271483872'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '5214271483872@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0A1447FE0A442B2B241',
+    id: '3EB0D01A4FA618DE8B0027',
     participant: undefined
   },
-  messageTimestamp: 1730140812,
+  messageTimestamp: 1730144492,
   pushName: 'Travel MR sjr',
   broadcast: false,
   message: Message {
-    conversation: 'todo',
+    conversation: '1',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2,
@@ -772,6 +2554,206 @@
     }
   },
   verifiedBizName: 'Travel MR sjr',
-  body: 'todo',
+  body: '1',
   from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB09C1654DCDEEA98E746',
+    participant: undefined
+  },
+  messageTimestamp: 1730144494,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'AS',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'AS',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_569f72a2-ec1d-4e2e-aa76-47efdb6242fb',
+  keyword: 'ans_94b5490d-e3c6-4284-abf0-4ec4759acff8',
+  answer: '¿Cuál es el destino del autobús? \n*(EJEMPLO):* Teotihuacán.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: 'fc7ba97da5218ca71f2ebf7cb56e9611'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0A549F3FFF22C978938',
+    participant: undefined
+  },
+  messageTimestamp: 1730144496,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'As',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'As',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_5c932c60-44c3-4fcc-b753-2928b3281c67',
+  keyword: 'ans_569f72a2-ec1d-4e2e-aa76-47efdb6242fb',
+  answer: '¿Cuál es la fecha en la que planeas realizar este viaje?',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '2e4994c1281811df8da5d942813ea468'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0C1FCD397810ADB5C8E',
+    participant: undefined
+  },
+  messageTimestamp: 1730144498,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'asdasda',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'asdasda',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_f58d3245-cb44-4c57-be18-f5dd211e958b',
+  keyword: 'ans_5c932c60-44c3-4fcc-b753-2928b3281c67',
+  answer: '¿Qué movimientos o paradas adicionales necesitas hacer una vez en el destino? Esto nos ayuda a entender mejor tus necesidades de transporte en el lugar.',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '5d9ba438b6d50f85ef21dfbcc80dd17b'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0FACE70518D88686078',
+    participant: undefined
+  },
+  messageTimestamp: 1730144500,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'asdasdas',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'asdasdas',
+  from: '5214271483872'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5214271483872@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0BE5E35DCA2F0E4AA68',
+    participant: undefined
+  },
+  messageTimestamp: 1730144504,
+  pushName: 'Travel MR sjr',
+  broadcast: false,
+  message: Message {
+    conversation: 'inicio',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2,
+      messageSecret: [Uint8Array]
+    }
+  },
+  verifiedBizName: 'Travel MR sjr',
+  body: 'inicio',
+  from: '5214271483872'
+}
+[QUEUE_SE_ENVIO]:  {
+  ref: 'ans_b674ed75-8ac9-423f-a59f-17cc8da56d1b',
+  keyword: 'key_5ed63965-f8c3-4ec6-bcd3-1fa100ca98f9',
+  answer: 'ESTE ES EL MENÚ DE OPCIONES \n' +
+    '\n' +
+    '\n' +
+    '1. Cotizar destino *nacional* ✈️🌎 \n' +
+    '2. Cotizar destino *internacional* 🌏✈️\n' +
+    '3. Cotizar otros servicios 🚎 \n' +
+    '4. Cambios en mi reserva ⏱️\n' +
+    '5. Estado de mi adeudo ✅\n' +
+    '6. Reembolsos ⬅️\n' +
+    '7. Facturación 📄\n' +
+    '8. Tu Visa Americana con TravelMR 🇺🇸\n' +
+    '9. Tu Visa Canadiense con TravelMR 🇨🇦\n' +
+    '10. Vuelos ✈️↔️\n' +
+    '11. Salir\n' +
+    '\n' +
+    '\n' +
+    '*Por favor ingresa una opción acorde a su número* \n' +
+    '\n' +
+    'Por ejemplo: *1*',
+  options: {
+    media: null,
+    buttons: [],
+    capture: true,
+    child: null,
+    delay: 0,
+    idle: null,
+    ref: null,
+    nested: [],
+    keyword: {},
+    callback: true
+  },
+  refSerialize: '7c4f5e3154262735249e5923fc23b73e'
 }

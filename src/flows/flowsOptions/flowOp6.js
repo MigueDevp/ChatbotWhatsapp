@@ -82,7 +82,7 @@ const flowOp6 = addKeyword(EVENTS.ACTION)
           console.log("Request has been sent to MongoDB!");
 
           await transporter.sendMail({
-            from: '"✈️🌎TRAVEL-BOT🌎✈️" ',
+            from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
             to: "travelmrbot@gmail.com",
             subject: "Solicitud de rembolso",
             text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryRembolsos}`,

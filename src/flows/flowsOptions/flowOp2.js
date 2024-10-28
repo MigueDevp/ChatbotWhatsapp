@@ -156,7 +156,7 @@ const flowOp2 = addKeyword(EVENTS.ACTION)
           const email = "travelmrbot@gmail.com"
 
           await transporter.sendMail({
-            from: '"✈️🌎TRAVEL-BOT🌎✈️"',
+            from: '"✈️🌎TRAVEL-BOT🌎✈️"<angelrr.ti22@utsjr.edu.mx>',
             to: email ,
             subject: "Cotización de Viaje Internacional",
             text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryInternational}`,
