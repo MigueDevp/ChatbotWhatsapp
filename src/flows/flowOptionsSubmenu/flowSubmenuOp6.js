@@ -94,8 +94,8 @@ const flowSubmenuOp6 = addKeyword(EVENTS.ACTION)
           console.log("Summary has been sent to MongoDB!");
 
           await transporter.sendMail({
-            from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
-            to: "miguedevp@gmail.com",
+            from: '"✈️🌎TRAVEL-BOT🌎✈️"',
+            to: "travelmrbot@gmail.com",
             subject: "Cotización de tour",
             text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryTour}`,
           });

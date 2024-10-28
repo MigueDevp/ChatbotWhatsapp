@@ -35,7 +35,7 @@ const flowSubmenuOp6 = require("./src/flows/flowOptionsSubmenu/flowSubmenuOp6");
 const main = async () => {
   const adapterDB = new MongoAdapter({
     dbUri: "mongodb://localhost:27017",
-    dbName: "chatbot",
+    dbName: "cotizaciones",
   });
 
   //LISTA DE FLOWS

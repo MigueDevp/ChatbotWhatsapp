@@ -153,18 +153,20 @@ const flowOp2 = addKeyword(EVENTS.ACTION)
 
           console.log("Summary has been sent to MongoDB!");
 
+          const email = "travelmrbot@gmail.com"
+
           await transporter.sendMail({
-            from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
-            to: "miguedevp@gmail.com",
+            from: '"✈️🌎TRAVEL-BOT🌎✈️"',
+            to: email ,
             subject: "Cotización de Viaje Internacional",
             text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryInternational}`,
           });
-
-          console.log("Cotización correctamente enviada por GMAIL", { summaryInternational });
+          console.log("Cotización correctamente enviada por GMAIL",);
         } catch (error) {
           console.error("Error MongoDB:", error);
         }
       })();
+
     }
   );
 

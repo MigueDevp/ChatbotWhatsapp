@@ -65,8 +65,8 @@ const flowOp7 = addKeyword(EVENTS.ACTION)
 
         
         const sendToGmail = await transporter.sendMail({
-          from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
-          to: "miguedevp@gmail.com",
+          from: '"✈️🌎TRAVEL-BOT🌎✈️"',
+          to: "travelmrbot@gmail.com",
           subject: "Facturación",
           text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryBilling}`,
         });

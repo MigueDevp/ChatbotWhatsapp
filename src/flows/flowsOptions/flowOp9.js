@@ -87,8 +87,8 @@ Recuerda que nadie tiene la facultad de garantizarte la aprobación de la visa, 
       console.log("Visa request has been sent to MongoDB!");
 
       const sendToGmail = await transporter.sendMail({
-        from: '"✈️🌎TRAVEL-BOT🌎✈️" <angelrr.ti22@utsjr.edu.mx>',
-        to: "miguedevp@gmail.com",
+        from: '"✈️🌎TRAVEL-BOT🌎✈️"',
+        to: "travelmrbot@gmail.com",
         subject: "Visa Canadiense",
         text: `¡Hola Ejecutiv@ de TRAVELMR!, Tienes una nueva cotización:\n${summaryVisaC}`,
       });
